@@ -5,9 +5,9 @@ import { GlobalStyle } from './GlobalStyle'
 import Container from './Container'
 import Header from './header/Header'
 import Banner from './main/banner/Banner'
+import FirstProject from './main/section/FirstProject'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -15,6 +15,7 @@ function App() {
     <Container>
       <Header />
       <Banner />
+      <FirstProject></FirstProject>
     </Container>
     {/* <Landing /> */}
     </>

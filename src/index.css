@@ -23,31 +23,31 @@
 }
 @font-face {
   font-family: 'NotoSerifKR_Bold';
-  src: url('/public/fonts/NotoSerifKR-Bold.ttf') format('truetype');
+  src: url('/fonts/NotoSerifKR-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: 'NotoSerifKR_Medium';
-  src: url('/public/fonts/NotoSerifKR-Medium.ttf') format('truetype');
+  src: url('/fonts/NotoSerifKR-Medium.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: 'Pretendard_Bold';
-  src: url('/public/fonts/Pretendard-Bold.subset.woff2') format('woff2');
+  src: url('/fonts/Pretendard-Bold.subset.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: 'Pretendard_SemiBold';
-  src: url('/public/fonts/Pretendard-SemiBold.subset.woff2') format('woff2');
+  src: url('/fonts/Pretendard-SemiBold.subset.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: 'Pretendard_Regular';
-  src: url('/public/fonts/Pretendard-Regular.subset.woff2') format('woff2');
+  src: url('/fonts/Pretendard-Regular.subset.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
@@ -79,6 +79,10 @@ ul,li { list-style: none; }
   left: 0;
   opacity: 0;
   z-index: -1;
+}
+
+img {
+  vertical-align: bottom;
 }
 
 button:focus,

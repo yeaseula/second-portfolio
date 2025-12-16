@@ -20,7 +20,7 @@ const SLIDE = [
         backImage : 'url(/image/slide01.png)',
         maincopy : <>1,593 contributions <br /> in the last year</>,
         subcopy : <>보는 사람이 없을 때도, 만들었습니다.</>,
-        link : '',
+        link : 'https://github.com/yeaseula',
         button : '깃허브 바로가기'
     },
     {
@@ -59,10 +59,6 @@ export default function Banner() {
             navigation
             pagination={{ clickable: true }}
             loop={true}
-            loopAdditionalSlides={4}
-            loopAddBlankSlides={true}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             style={{ height: '100%', overflow: 'visible' }}
             >
                 {SLIDE.map((slide,idx)=>(

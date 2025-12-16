@@ -1,11 +1,11 @@
 import Logo from "../../common/Logo"
 import styled from "styled-components"
-
+import Button from "../../common/Button"
 
 const SlidesContainer = styled.div`
     width: 100%;
     height: 100%;
-    padding-left: 6.3rem;
+    padding-left: 8.3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,14 +33,7 @@ const SubCopy = styled.p`
     font-size: 1.8rem;
     color: var(--white_color);
 `
-const Button = styled.a`
-    display: inline-block;
-    padding: 8px 30px;
-    font-size: 1.6rem;
-    background: var(--white_color);
-    border-radius: 10px;
-    margin-top: 40px;
-`
+
 export default function Slides({maincopy, subcopy, button, link}) {
     return(
         <SlidesContainer>
