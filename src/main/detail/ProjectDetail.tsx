@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import DetailTop from "./DetailTop"
-import TabContents from "./TabContents"
+import TabContents from "./tab/TabContents"
 import { memo } from "react"
 
 const ModalComponent = styled.section`
