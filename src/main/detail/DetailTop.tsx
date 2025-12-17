@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { PortfolioType } from "../../types/portfolio"
 
 const DefaultInfor = styled.ul`
     display: flex;
@@ -25,27 +26,29 @@ const LinkButtonContainer = styled.div`
     gap: 7px;
 `
 
-export default function DetailTop() {
+export default function DetailTop({targetdata}:{targetdata:PortfolioType}) {
     return (
         <>
             <DefaultInfor>
-                <li>책담 2 (리팩토링) · </li>
-                <li>2025.11 - 2025.12 · </li>
-                <li>기여도 100%</li>
+                <li>{targetdata.title} · </li>
+                <li>{targetdata.period} · </li>
+                <li>{targetdata.contribution}</li>
             </DefaultInfor>
 
-            <MainCopy>기록은 쌓이고, 경험은 진화한다.<br />
-                리팩토링으로 더 새로워진 책담 Season 2
+            <MainCopy>
+                {targetdata.description}
             </MainCopy>
 
             <DefaultInfor>
-                <HashTag># 1인 프로젝트</HashTag>
-                <HashTag># 모바일</HashTag>
-                <HashTag># 독서리뷰</HashTag>
+                {targetdata.hashtags.map((tag,idx)=>(
+                    <HashTag key={`${tag}-${idx}`}>{tag}</HashTag>
+                ))}
             </DefaultInfor>
 
             <div>
-                Next.js / typescript / supabase / zustand / tailwind / style-components / vercel
+                {targetdata.skills.map((skill,idx)=>(
+                    <span key={`${skill}-${idx}`}>{skill}</span>
+                ))}
             </div>
             <LinkButtonContainer>
                 <a href="">깃헙</a>

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import OriginalLogo from "../../common/OriginalLogo"
 import Button from "../../common/Button"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Modal from "../../common/Modal"
 import ProjectDetail from "../detail/ProjectDetail"
 
@@ -34,6 +34,7 @@ export default function FirstProject() {
 
     const [moreview,setMoreView] = useState(false)
     const [modal,setModal] = useState(false)
+    const [contentsId,setContentsId] = useState<string | null>(null)
 
     return (
         <section style={{ marginTop: '80px' }}>
@@ -65,14 +66,22 @@ export default function FirstProject() {
                 </figure>
                 {moreview &&
                     <HoverContainer>
-                        <Button type="button" onClick={()=>{setModal(true)}}>자세히 보기</Button>
+                        <Button
+                        type="button"
+                        onClick={()=>{
+                            setModal(true);
+                            setContentsId('bookdam2')
+                        }}
+                        >
+                            자세히 보기
+                        </Button>
                     </HoverContainer>
                 }
                 </PosterList>
             </PosterWrap>
             {modal &&
-                <Modal onClick={()=>{}}>
-                    <ProjectDetail />
+                <Modal onClick={()=>{setModal(false)}}>
+                    <ProjectDetail contentsId={contentsId}/>
                 </Modal>
             }
         </section>
