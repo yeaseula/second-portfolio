@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import OriginalLogo from "../../common/OriginalLogo"
 import Button from "../../common/Button"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import Modal from "../../common/Modal"
 import ProjectDetail from "../detail/ProjectDetail"
 

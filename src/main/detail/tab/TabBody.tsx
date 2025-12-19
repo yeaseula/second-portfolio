@@ -4,6 +4,7 @@ import ActiveTwo from "../activeTab/ActiveTwo"
 import ActiveThree from "../activeTab/ActiveThree"
 import ActiveFour from "../activeTab/ActiveFour"
 import { TabContent } from "../../../types/portfolio"
+import { forwardRef } from "react"
 
 const Container = styled.div`
     padding-top: 40px;
@@ -13,7 +14,7 @@ const Container = styled.div`
 `
 
 export default function TabBody({activeTab,tabContent}:
-    {activeTab:number, tabContent:TabContent}) {
+    { activeTab:number, tabContent:TabContent}) {
 
     if(activeTab === 1) {
         return (
