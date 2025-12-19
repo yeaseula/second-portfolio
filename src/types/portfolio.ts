@@ -11,6 +11,18 @@ export interface PortfolioType {
     github_url: string;
 }
 
+export interface TabContent {
+    description?: string
+    skills?: string
+    trouble?: string
+    retrospect?: string
+}
+
+export interface AllPortfolioTypes {
+    topDataType: PortfolioType | null;
+    tapDataType: TabContent | null;
+}
+
 export interface TabType {
     tab_contents: {
         tab_description: string;

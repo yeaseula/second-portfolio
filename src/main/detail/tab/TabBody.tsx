@@ -3,6 +3,7 @@ import ActiveOne from "../activeTab/ActiveOne"
 import ActiveTwo from "../activeTab/ActiveTwo"
 import ActiveThree from "../activeTab/ActiveThree"
 import ActiveFour from "../activeTab/ActiveFour"
+import { TabContent } from "../../../types/portfolio"
 
 const Container = styled.div`
     padding-top: 40px;
@@ -11,26 +12,27 @@ const Container = styled.div`
     }
 `
 
-export default function TabBody({activeTab}:{activeTab:number}) {
+export default function TabBody({activeTab,tabContent}:
+    {activeTab:number, tabContent:TabContent}) {
 
     if(activeTab === 1) {
         return (
             <Container>
-                <ActiveOne></ActiveOne>
+                <ActiveOne tabContent={tabContent.description} />
             </Container>
         )
     }
     if(activeTab === 2) {
         return (
             <Container>
-                <ActiveTwo></ActiveTwo>
+                <ActiveTwo tabContent={tabContent.skills} />
             </Container>
         )
     }
     if(activeTab === 3) {
         return (
             <Container>
-                <ActiveThree></ActiveThree>
+                <ActiveThree tabContent={tabContent.trouble} />
             </Container>
         )
     }

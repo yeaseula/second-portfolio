@@ -3,7 +3,9 @@ import DetailTop from "./DetailTop"
 import TabContents from "./tab/TabContents"
 import { memo, useEffect, useState } from "react"
 import { portfolio } from "../../data/portfolio"
-import { PortfolioType } from "../../types/portfolio"
+import { AllPortfolioTypes } from "../../types/portfolio"
+import { parseMarkdownByTab } from "../../types/mdType"
+import ReactFocusLock from "react-focus-lock"
 
 const ModalComponent = styled.section`
     max-width: 800px;
@@ -31,30 +33,42 @@ const DescriptionContainer =styled.div`
 
 const ProjectDetail = memo(({contentsId}:{contentsId:string | null})=>{
 
-    const [ targetdata, setTargetData ] = useState<PortfolioType | null>(null)
+    const [targetdata,setTargetData] = useState<AllPortfolioTypes>({
+        topDataType: null,
+        tapDataType: null,
+    })
 
     useEffect(()=>{
         if(!contentsId) return
         const target = portfolio.find((val)=>val.id === contentsId);
         if(!target) return
-        setTargetData(target)
+        import(`../../data/portfolio-content/${contentsId}.md?raw`).then((module) => {
+            const parsed = parseMarkdownByTab(module.default)
+            setTargetData({
+                topDataType: target,
+                tapDataType: parsed
+            })
+        })
+
     },[contentsId])
 
-    if(!targetdata) {
+    if(!targetdata.topDataType || !targetdata.tapDataType) {
         return (
             <>데이터 로드중</>
         )
     }
 
     return(
+        <ReactFocusLock returnFocus={true}>
         <ModalComponent>
             <h2 className="sr-only">상세 설명</h2>
             <VideoContainer>동영상 영역</VideoContainer>
             <DescriptionContainer>
-                <DetailTop targetdata={targetdata}/>
-                <TabContents />
+                <DetailTop targetdata={targetdata.topDataType}/>
+                <TabContents tabContent={targetdata.tapDataType}/>
             </DescriptionContainer>
         </ModalComponent>
+        </ReactFocusLock>
     )
 })
 

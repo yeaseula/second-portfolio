@@ -15,7 +15,7 @@ function App() {
     <Container>
       <Header />
       <Banner />
-      <FirstProject></FirstProject>
+      <FirstProject />
     </Container>
     {/* <Landing /> */}
     </>

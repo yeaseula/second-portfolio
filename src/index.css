@@ -70,8 +70,13 @@ h1 {
   line-height: 1.1;
 }
 
+h1,h2,h3,h4,h5 { font-family: 'Pretendard_Bold' }
+
 a { color: var(--black_color); text-decoration: none; }
+
 ul,li { list-style: none; }
+
+strong { font-family: 'Pretendard_Bold'; }
 
 .sr-only {
   position: absolute;
