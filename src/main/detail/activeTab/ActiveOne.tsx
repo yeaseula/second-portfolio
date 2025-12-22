@@ -3,7 +3,15 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm"
 
 const Container = styled.div`
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    ol, ul {
+        margin-left: 15px;
+        margin-bottom: 10px;
+    };
+    ol > li { list-style: decimal; font-size: 1.8rem };
+    > ul > li {
+        list-style: disc
+    };
     strong {
         text-shadow: 0 1px 2px var(--main_color)
     }
