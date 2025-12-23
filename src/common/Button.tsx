@@ -16,6 +16,7 @@ const ButtonStyle = styled.button`
     background: var(--white_color);
     border-radius: 10px;
     margin-top: 40px;
+    cursor: pointer;
 `
 
 interface ButtonProps {

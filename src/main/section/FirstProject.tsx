@@ -17,17 +17,19 @@ const PosterList = styled.div`
     aspect-ratio: 3/ 4;
     width: 100%;
 `
-const HoverContainer = styled.div`
+const HoverContainer = styled.div<{$moreview:boolean}>`
     width: 100%;
     height: 100%;
     position: absolute;
     top:0;
     left: 0;
-    z-index: 10;
+    opacity: ${(p)=>p.$moreview ? 1 : 0};
+    z-index: ${(p)=>p.$moreview ? 10 : -99};
     background-color: rgba(0,0,0,0.45);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.4s;
 `
 
 export default function FirstProject() {
@@ -64,19 +66,22 @@ export default function FirstProject() {
                         책담 서비스 시즌2 공식 포스터 - 아늑한 분위기의 도서관 풍경
                     </figcaption>
                 </figure>
-                {moreview &&
-                    <HoverContainer>
-                        <Button
-                        type="button"
-                        onClick={()=>{
-                            setModal(true);
-                            setContentsId('bookdam2')
-                        }}
-                        >
-                            자세히 보기
-                        </Button>
-                    </HoverContainer>
-                }
+
+                <HoverContainer
+                role="button"
+                aria-hidden={!moreview}
+                $moreview={moreview}>
+                    <Button
+                    type="button"
+                    onClick={()=>{
+                        setModal(true);
+                        setContentsId('bookdam2')
+                    }}
+                    >
+                        자세히 보기
+                    </Button>
+                </HoverContainer>
+
                 </PosterList>
             </PosterWrap>
             {modal &&
