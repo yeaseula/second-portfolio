@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../Button";
-import { projectInforType } from "../../data/types/dataType";
+import { projectInforType } from "../../types/dataType";
 import { usePosterModal } from "../../hook/useModal";
 import Modal from "../Modal";
 import ProjectDetail from "../../main/detail/ProjectDetail";

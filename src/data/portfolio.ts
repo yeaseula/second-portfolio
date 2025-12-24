@@ -1,5 +1,5 @@
 import { PortfolioType } from "../types/portfolio"
-import { projectInforType } from "./types/dataType"
+import { projectInforType } from "../types/dataType"
 
 export const SkillHashColor = {
     'Next.js': '',
@@ -36,7 +36,19 @@ export const portfolio:PortfolioType[] = [
     description: '기록은 쌓이고, 경험은 진화한다. \n리팩토링으로 더 새로워진 책담 Season 2',
     hashtags: ['#1인 프로젝트','독서리뷰'],
     skills: ['Next.js','Typescript','supabaes','zustand','tailwind','style-components'],
-    site_url: '',
-    github_url: '',
+    site_url: 'https://bookdam-ver2.vercel.app/',
+    github_url: 'https://github.com/yeaseula/BookdamVer2',
+},
+{
+    id: 'maserati',
+    video_url : '',
+    title: '마세라티 3D 갤러리',
+    period: '2025.09 - 2025.09',
+    contribution: '기여도 100%',
+    description: '마세라티 3D 갤러리',
+    hashtags: ['#3D 전시장','#자동차'],
+    skills: ['React','tailwind','Three.js','React Fiber'],
+    site_url: 'https://maserati-3d-gallery.pages.dev',
+    github_url: 'https://github.com/yeaseula/Maserati-3D-Gallery',
 },
 ]

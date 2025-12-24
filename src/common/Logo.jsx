@@ -1,14 +1,14 @@
 import styled from "styled-components"
 
 const LogoText = styled.p`
-    font-family: 'BebasNeue';
+    font-family: 'Pretendard_SemiBold';
     font-size: ${(p)=>p.fonts};
-    color: var(--main_color) ;
-    line-height: 1;
+    color: var(--white_color) ;
+    line-height: 1.6;
 `
 
-export default function Logo({fonts}) {
+export default function Logo({fonts, text}) {
     return (
-        <LogoText fonts={fonts}>YEFLIX</LogoText>
+        <LogoText fonts={fonts}>{text}</LogoText>
     )
 }
