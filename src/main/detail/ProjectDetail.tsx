@@ -58,7 +58,7 @@ const ProjectDetail = memo(({contentsId}:{contentsId:string | null})=>{
     }
 
     return(
-        <ReactFocusLock returnFocus={true}>
+        <ReactFocusLock>
         <section
         ref={tabRef}
         onScroll={handleScroll}

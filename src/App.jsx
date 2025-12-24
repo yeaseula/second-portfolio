@@ -5,7 +5,8 @@ import { GlobalStyle } from './GlobalStyle'
 import Container from './Container'
 import Header from './header/Header'
 import Banner from './main/banner/Banner'
-import FirstProject from './main/section/FirstProject'
+import OriginalProject from './main/section/OriginalProject'
+import PersonalProject from './main/section/PersonalProjext'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
     <Container>
       <Header />
       <Banner />
-      <FirstProject />
+      <OriginalProject />
+      <PersonalProject />
     </Container>
     {/* <Landing /> */}
     </>

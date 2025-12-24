@@ -1,9 +1,20 @@
 import { PortfolioType } from "../types/portfolio"
+import { projectInforType } from "./types/dataType"
 
 export const SkillHashColor = {
     'Next.js': '',
 
 }
+
+export const yeOriginal:projectInforType[] = [
+{
+    src: '/image/poster_bookdam_302.webp',
+    srcSet: '/image/poster_bookdam_604.webp',
+    alt:'책담 시즌2 포스터',
+    srOnly: '책담 서비스 시즌2 공식 포스터 - 아늑한 분위기의 도서관 풍경',
+    contentsId: 'bookdam2'
+},
+]
 
 export const portfolio:PortfolioType[] = [
 {
