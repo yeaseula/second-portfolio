@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import OriginalLogo from "../OriginalLogo"
 import React from "react"
 
 const PosterWrap = styled.article`
@@ -9,11 +8,16 @@ const PosterWrap = styled.article`
     margin-top: 20px;
 `
 
-export default function PosterWrapper({children}: {children: React.ReactNode}) {
+export default function PosterWrapper({
+    title,
+    children
+} : {
+    title: React.ReactNode
+    children: React.ReactNode}) {
 
     return (
         <section style={{ marginTop: '80px' }}>
-            <OriginalLogo fonts={'3rem'}/>
+            {title}
             <PosterWrap>
                 {children}
             </PosterWrap>

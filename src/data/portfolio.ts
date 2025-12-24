@@ -16,6 +16,16 @@ export const yeOriginal:projectInforType[] = [
 },
 ]
 
+export const personalProject:projectInforType[] = [
+    {
+        src: '/image/poster_maserati_302.webp',
+        srcSet: '/image/poster_maserati_604.webp',
+        alt:'마세라티 3D 갤러리 포스터',
+        srOnly: '마세라티 3D 갤러리 공식 포스터 - 고급스러운 분위기의 마세라티 차량',
+        contentsId: 'maserati'
+    }
+]
+
 export const portfolio:PortfolioType[] = [
 {
     id: 'bookdam2',
