@@ -15,6 +15,9 @@ const Container = styled.div`
     strong {
         text-shadow: 0 1px 2px var(--main_color)
     }
+    blockquote {
+        margin-bottom: 15px;
+    }
 `
 
 export default function ActiveOne({tabContent}:{tabContent:string | undefined}) {

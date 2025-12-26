@@ -15,9 +15,11 @@ function App() {
     <GlobalStyle />
     <Container>
       <Header />
-      <Banner />
-      <OriginalProject />
-      <PersonalProject />
+      <main>
+        <Banner />
+        <OriginalProject />
+        <PersonalProject />
+      </main>
     </Container>
     {/* <Landing /> */}
     </>

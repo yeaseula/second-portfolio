@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import styled from "styled-components"
+import { TABCONTENTS } from "../../../data/portfolio"
 
 const TabHead = styled.ul`
     margin-top: 40px;
@@ -19,6 +20,9 @@ const TabButton = styled.button<{$active:boolean}>`
     cursor: pointer;
     color: var(--main_color);
     font-family: ${(p)=>p.$active ? 'Pretendard_Bold' : 'initial'};
+    &:hover {
+
+    }
 `
 
 interface HeadProps {
@@ -26,24 +30,6 @@ interface HeadProps {
     setActiveTab: Dispatch<SetStateAction<number>>;
 }
 
-const TABCONTENTS = [
-    {
-        id: 1,
-        title: '상세설명',
-    },
-    {
-        id: 2,
-        title: '기술 선택 이유',
-    },
-    {
-        id: 3,
-        title: '트러블슈팅',
-    },
-    {
-        id: 4,
-        title: '회고',
-    },
-]
 
 export default function TabHeader({activeTab,setActiveTab}:HeadProps) {
 

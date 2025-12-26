@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { PortfolioType } from "../../types/portfolio"
 
-const DefaultInfor = styled.ul`
+const DefaultInfor = styled.div`
     display: flex;
     gap: 5px;
     font-size: 1.4rem;
@@ -10,7 +10,7 @@ const MainCopy = styled.p`
     font-size: 1.8rem;
     margin: 10px 0 25px 0;
 `
-const HashTag = styled.li`
+const HashTag = styled.span`
     border-radius: 50px;
     background-color: #fff;
     font-size: 1.4rem;
@@ -30,29 +30,30 @@ export default function DetailTop({targetdata}:{targetdata:PortfolioType}) {
     return (
         <>
             <DefaultInfor>
-                <li>{targetdata.title} · </li>
-                <li>{targetdata.period} · </li>
-                <li>{targetdata.contribution}</li>
+                <span>{targetdata.title} · </span>
+                <span>{targetdata.period} · </span>
+                <span>{targetdata.contribution}</span>
             </DefaultInfor>
 
             <MainCopy>
                 {targetdata.description}
             </MainCopy>
 
-            <DefaultInfor>
+            {/* <DefaultInfor>
                 {targetdata.hashtags.map((tag,idx)=>(
-                    <HashTag key={`${tag}-${idx}`}>{tag}</HashTag>
+                    <span key={`${tag}-${idx}`}>{tag}</span>
+                ))}
+            </DefaultInfor> */}
+
+            <DefaultInfor>
+                {targetdata.skills.map((skill,idx)=>(
+                    <HashTag key={`${skill}-${idx}`}>{skill}</HashTag>
                 ))}
             </DefaultInfor>
 
-            <div>
-                {targetdata.skills.map((skill,idx)=>(
-                    <span key={`${skill}-${idx}`}>{skill}</span>
-                ))}
-            </div>
             <LinkButtonContainer>
-                <a href="">깃헙</a>
-                <a href="">페이지보기</a>
+                <a href={targetdata.github_url}>깃헙</a>
+                <a href={targetdata.site_url}>페이지보기</a>
             </LinkButtonContainer>
         </>
     )
