@@ -16,6 +16,7 @@ export interface TabContent {
     skills?: string
     trouble?: string
     retrospect?: string
+    skillPoint?: string
 }
 
 export interface AllPortfolioTypes {

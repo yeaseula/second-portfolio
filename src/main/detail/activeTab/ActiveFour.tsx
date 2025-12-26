@@ -1,6 +1,37 @@
-export default function ActiveFour() {
+import styled from "styled-components"
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm"
 
+const Container = styled.div`
+    font-size: 1.6rem;
+    ol, ul {
+        margin-left: 15px;
+        margin-bottom: 10px;
+    };
+    ol > li { list-style: decimal; font-size: 1.8rem };
+    > ul > li {
+        list-style: disc
+    };
+    strong {
+        text-shadow: 0 1px 2px var(--main_color)
+    }
+    blockquote {
+        margin-bottom: 15px;
+    }
+`
+
+export default function ActiveFour({tabContent}:{tabContent:string | undefined}) {
+
+    if(tabContent) {
+        return (
+            <Container>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {tabContent}
+            </ReactMarkdown>
+            </Container>
+        )
+    }
     return (
-        <>회고</>
+        <p>상세설명이 없습니다.</p>
     )
 }

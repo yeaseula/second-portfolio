@@ -2,12 +2,14 @@ import TabHeader from "./TabHeader"
 import TabBody from "./TabBody"
 import { RefObject, useState, useEffect } from "react"
 import { TabContent } from "../../../types/portfolio"
-
-
+import { TABCONTENTS } from "../../../data/portfolio"
+import { TABCONTENTS_TYPE2 } from "../../../data/portfolio"
 
 export default function TabContents({contentsId, targetRef,tabContent}:{contentsId:string | null,tabContent:TabContent, targetRef:RefObject<HTMLDivElement | null>}) {
 
     const [activeTab,setActiveTab] = useState<number>(1)
+
+    const tab_content = contentsId === 'fighthero' ? TABCONTENTS_TYPE2 : TABCONTENTS
 
     useEffect(() => {
         if (targetRef.current) {
@@ -20,7 +22,7 @@ export default function TabContents({contentsId, targetRef,tabContent}:{contents
 
     return (
         <>
-        <TabHeader activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabHeader activeTab={activeTab} setActiveTab={setActiveTab} tabcontent={tab_content} />
         <TabBody activeTab={activeTab} tabContent={tabContent}/>
         </>
     )

@@ -24,6 +24,21 @@ export const TABCONTENTS = [
     },
 ]
 
+export const TABCONTENTS_TYPE2 = [
+    {
+        id: 1,
+        title: '상세설명',
+    },
+    {
+        id: 2,
+        title: '기술 활용 포인트',
+    },
+    {
+        id: 4,
+        title: '회고',
+    },
+]
+
 export const yeOriginal:projectInforType[] = [
 {
     src: '/image/poster_bookdam_302.webp',
@@ -41,6 +56,13 @@ export const personalProject:projectInforType[] = [
         alt:'마세라티 3D 갤러리 포스터',
         srOnly: '마세라티 3D 갤러리 공식 포스터 - 고급스러운 분위기의 마세라티 차량',
         contentsId: 'maserati'
+    },
+    {
+        src: '/image/poster_hero_302.webp',
+        srcSet: '/image/poster_hero_604.webp',
+        alt:'fight hero 포스터',
+        srOnly: 'fight hero 공식 포스터 - 용사와 괴수가 맞서 싸우는 판타지풍 포스터',
+        contentsId: 'fighthero'
     }
 ]
 
@@ -68,5 +90,17 @@ export const portfolio:PortfolioType[] = [
     skills: ['React','tailwind','Three.js','React Fiber'],
     site_url: 'https://maserati-3d-gallery.pages.dev',
     github_url: 'https://github.com/yeaseula/Maserati-3D-Gallery',
+},
+{
+    id: 'fighthero',
+    video_url : '',
+    title: 'Fight Hero - 미니게임',
+    period: '2025.08.21 - 2025.09.02',
+    contribution: '기여도 100%',
+    description: 'JavaScript 클래스 기반으로 구현한 판타지 미니 게임!',
+    hashtags: ['#미니게임'],
+    skills: ['javascript','html','css'],
+    site_url: 'https://yeaseula.github.io/FightHero/',
+    github_url: 'https://github.com/yeaseula/FightHero',
 },
 ]

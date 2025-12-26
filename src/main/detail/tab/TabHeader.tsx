@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
 import styled from "styled-components"
-import { TABCONTENTS } from "../../../data/portfolio"
 
 const TabHead = styled.ul`
     margin-top: 40px;
@@ -28,14 +27,15 @@ const TabButton = styled.button<{$active:boolean}>`
 interface HeadProps {
     activeTab: number;
     setActiveTab: Dispatch<SetStateAction<number>>;
+    tabcontent: {id:number, title: string}[]
 }
 
 
-export default function TabHeader({activeTab,setActiveTab}:HeadProps) {
+export default function TabHeader({activeTab,setActiveTab,tabcontent}:HeadProps) {
 
     return (
         <TabHead>
-            {TABCONTENTS.map((tab)=>(
+            {tabcontent.map((tab)=>(
                 <TabInner key={`${tab.id}-${tab.title}`}>
                     <TabButton
                     $active={activeTab === tab.id}

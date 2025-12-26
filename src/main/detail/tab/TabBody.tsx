@@ -25,7 +25,7 @@ export default function TabBody({activeTab,tabContent}:
     if(activeTab === 2) {
         return (
             <Container>
-                <ActiveTwo tabContent={tabContent.skills} />
+                <ActiveTwo tabContent={tabContent.skills || tabContent.skillPoint} />
             </Container>
         )
     }
@@ -39,7 +39,7 @@ export default function TabBody({activeTab,tabContent}:
     if(activeTab === 4) {
         return (
             <Container>
-                <ActiveFour></ActiveFour>
+                <ActiveFour tabContent={tabContent.retrospect} />
             </Container>
         )
     }
