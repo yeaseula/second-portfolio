@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { AnimatePresence } from 'framer-motion'
 import Landing from './Landing'
 import { GlobalStyle } from './GlobalStyle'
 import Container from './Container'
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
     <GlobalStyle />
+    <AnimatePresence>
     <Container>
       <Header />
       <main>
@@ -23,6 +25,7 @@ function App() {
         <BootCamp />
       </main>
     </Container>
+    </AnimatePresence>
     {/* <Landing /> */}
     </>
   )
