@@ -18,7 +18,7 @@ const BannerWrap = styled.section`
 const SLIDE = [
     {
         backImage : 'url(/image/slide01.png)',
-        maincopy : <>1,593 contributions <br /> in the last year</>,
+        maincopy : <>1,715 contributions <br /> in the last year</>,
         subcopy : <>보는 사람이 없을 때도, 만들었습니다.</>,
         link : 'https://github.com/yeaseula',
         button : '깃허브 바로가기'

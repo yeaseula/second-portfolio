@@ -62,7 +62,7 @@ export default function BootCampInner() {
                             <h3>관련 프로젝트</h3>
                             <div className="mt-5">
                                 <div className="text-">
-                                    <p>내용 : HTML/CSS 기반 미니 프로젝트 2개 제작 및 발표</p>
+                                    <p>프로젝트 개요 : HTML/CSS 기반 미니 프로젝트 2개 제작 및 발표</p>
                                     <p>역할 : 시멘틱 마크업, 반응형 작업 </p>
                                     <p>성과 : 최종 발표 <b>대상(1등)</b> 수상</p>
                                     <div className="mt-5">
@@ -78,17 +78,75 @@ export default function BootCampInner() {
                 </ListModalWrapper>
             </Modal>
         )}
+        {selected === "frontend-deepening" && (
+            <Modal onClick={() => setSelected(null)}>
+                <ListModalWrapper
+                    layoutId="frontend-deepening"
+                >
+                    <h3 className="text-3xl">자바스크립트 · 인터랙션 구현</h3>
+                    <div className="relative">
+                        <div className="mt-10">
+                            <h3>학습 내용</h3>
+                            <p className="mt-5 mb-3">javascript</p>
+
+                            <p>• javascript </p>
+                            <p>• </p>
+                        </div>
+                        <div className="mt-10">
+                            <h3>관련 프로젝트</h3>
+                            <div className="mt-5">
+                                <div className="text-">
+                                    <p>HODU SUPER | 오픈마켓 쇼핑몰</p>
+                                    <p>프론트엔드 3인 프로젝트</p>
+                                    <p>프로젝트 개요</p>
+                                    <p>HTML/CSS/javascript를 활용해 오픈마켓 쇼핑몰 제작</p>
+                                    <p>기여 내용</p>
+                                    <p>
+                                        1. 팀장<br/>
+                                        PR 검토 후 merge 승인<br/>
+
+                                        2. 기능 구현<br/>
+                                        회원가입/로그인 - javascript를 활용한 유효성 검사,<br/>
+                                        프로젝트 시작 전 미리 모듈을 만들어 팀원에게 공유 및 활용
+                                        alert - javascript class 구조 기반으로 모듈화<br/>
+
+                                        3. UI<br/>
+                                        UI/UX 구현 피드백 - 퍼블리셔 실무 경력을 기반으로 코드 피드백<br/>
+                                        모바일 디자인 아이디어 제공<br/>
+
+                                        4. 팀워크<br/>
+                                        갈등 예방을 위해 1일 1회 교육종료 전 "칭찬 감옥" 시스템을 제안,<br/>
+                                        서로의 장점 및 칭찬할 점을 말하도록 유도
+
+                                        5. 에셋 제작<br/>
+                                        대표이미지, 파비콘 제작
+                                    </p>
+                                    <p>회고 : <a href="">블로그에 회고 기록이 있습니다.</a></p>
+                                    <div className="mt-5">
+                                        <button>git hub 보러가기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ListModalWrapper>
+            </Modal>
+        )}
         </AnimatePresence>
         </>
     )
 }
 
-const ListItems =styled(motion.div)`
+const ListItems =styled(motion.button)`
     width: 100%;
     height: 100%;
     padding: 35px 20px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
+
+    &:focus-visible {
+        outline: 2px solid var(--main_color)
+    }
 `
 
 const ListModalWrapper = styled(motion.div)`

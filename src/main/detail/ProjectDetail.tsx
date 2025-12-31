@@ -8,16 +8,6 @@ import { parseMarkdownByTab } from "../../types/mdType"
 import ReactFocusLock from "react-focus-lock"
 
 const ModalWrapper = styled.section`
-    // position: fixed;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // z-index: 30;
-    // max-width: 850px;
-    //width: 100%;
-    //height: calc(100vh - 100px);
-    overflow-y: auto;
-    border-radius: 12px;
     background-color: var(--background_color);
     color: #fff;
 `

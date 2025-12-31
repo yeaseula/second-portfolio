@@ -55,15 +55,15 @@ export default function PostCard({ data }: {data:projectInforType}) {
                     {data.srOnly}
                 </figcaption>
             </figure>
-            {moreview &&
+
             <motion.div
-                initial={{
+                style={{
                     position: 'absolute', top: 0, left: 0 ,
                     width: '100%',height:'100%',
-                    opacity: 0}}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-            >
+                    opacity: moreview ? 1 : 0,
+                    transition: 'all 0.25s'
+                }}
+                >
                 <HoverContainer
                 role="button"
                 aria-hidden={!moreview}
@@ -78,7 +78,7 @@ export default function PostCard({ data }: {data:projectInforType}) {
                 </motion.div>
                 </HoverContainer>
             </motion.div>
-            }
+
             </PosterList>
             </motion.div>
 
@@ -89,11 +89,12 @@ export default function PostCard({ data }: {data:projectInforType}) {
                     layoutId={selected || ""}
                     style={{
                         position: 'relative',
-                        zIndex:10,
+                        zIndex: 30,
                         height: 'calc(100vh - 100px)',
                         maxWidth: '850px',
                         width: '100%',
-                        overflowY: 'auto'
+                        overflowY: 'auto',
+                        borderRadius: '12px'
                     }}
                 >
                     <ProjectDetail contentsId={contentId}/>
