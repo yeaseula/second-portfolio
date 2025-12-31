@@ -4,11 +4,12 @@ import { projectInforType } from "../../types/dataType";
 import { usePosterModal } from "../../hook/useModal";
 import Modal from "../Modal";
 import ProjectDetail from "../../main/detail/ProjectDetail";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion"
 
-const PosterList = styled.div`
+const PosterList = styled(motion.div)`
     position: relative;
     max-width: 302px;
-    aspect-ratio: 3/ 4;
     width: 100%;
 `
 
@@ -29,19 +30,21 @@ const HoverContainer = styled.div<{$moreview:boolean}>`
 
 export default function PostCard({ data }: {data:projectInforType}) {
     const {
-        moreview,modal,contentId,
+        moreview,contentId,selected,
         showMore,hideMore,
         openModal, closeModal
     } = usePosterModal()
 
     return (
         <>
+        <motion.div layout>
             <PosterList
             tabIndex={0}
             onMouseEnter={showMore}
             onMouseLeave={hideMore}
             onFocus={showMore}
             onBlur={hideMore}
+            layoutId={data.contentsId}
             >
             <figure>
                 <img
@@ -61,19 +64,37 @@ export default function PostCard({ data }: {data:projectInforType}) {
             role="button"
             aria-hidden={!moreview}
             $moreview={moreview}>
+            <motion.div layout className="grid gap-4">
                 <Button
                 type="button"
-                onClick={()=>openModal(data.contentsId)}
+                onClick={()=>{
+                    openModal(data.contentsId)
+                }}
                 >
                     자세히 보기
                 </Button>
+            </motion.div>
             </HoverContainer>
             </PosterList>
-            {modal &&
-                <Modal onClick={closeModal}>
+            </motion.div>
+
+            <AnimatePresence>
+            {selected === data.contentsId &&
+            <Modal onClick={() => closeModal()}>
+                <motion.div
+                    layoutId={selected || ""}
+                    style={{
+                        height: 'calc(100vh - 100px)',
+                        maxWidth: '850px',
+                        width: '100%',
+                        overflowY: 'auto'
+                    }}
+                >
                     <ProjectDetail contentsId={contentId}/>
-                </Modal>
+                </motion.div>
+            </Modal>
             }
+            </AnimatePresence>
         </>
     )
 }

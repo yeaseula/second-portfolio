@@ -6,8 +6,7 @@ import Modal from "../../common/Modal"
 
 export default function BootCampInner() {
 
-    const [isopen,setIsopen] = useState(false)
-const [selected, setSelected] = useState<string | null>(null)
+    const [selected, setSelected] = useState<string | null>(null)
     return (
         <>
         <div className="flex gap-5">

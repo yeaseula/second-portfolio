@@ -61,14 +61,7 @@ const ProjectDetail = memo(({contentsId}:{contentsId:string | null})=>{
         <ReactFocusLock>
         <section
         ref={tabRef}
-        onScroll={handleScroll}
-        style={{
-            overflowY: 'auto',
-            height: 'calc(100vh - 100px)',
-            position: 'fixed',
-            top: '50px', left: '50%', transform: 'translateX(-50%)',zIndex: 99,
-            maxWidth: '800px', width: '100%',
-        }}>
+        onScroll={handleScroll}>
         <ModalComponent>
             <h2 className="sr-only">상세 설명</h2>
             <VideoContainer>동영상 영역</VideoContainer>
