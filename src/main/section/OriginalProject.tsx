@@ -1,8 +1,8 @@
 
 import { yeOriginal } from "../../data/portfolio"
 import OriginalLogo from "../../common/OriginalLogo"
-import PosterInner from "../../common/poster/PosterInner"
 import PosterWrapper from "../../common/poster/PosterWrapper"
+import PosterInner from "../../common/poster/PosterInner"
 
 export default function OriginalProject() {
 
