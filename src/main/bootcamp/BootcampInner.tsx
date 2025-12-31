@@ -20,12 +20,24 @@ export default function BootCampInner() {
                     <h3 className="text-3xl">프론트엔드 기초 역량</h3>
                     <p className="mt-3">HTML/CSS 시멘틱 마크업과 접근성을 고려한 코드 작성</p>
                 </ListItems>
+                <ListItems
+                    layoutId="frontend-deepening"
+                    onClick={() => setSelected("frontend-deepening")}
+                    className="cursor-pointer"
+                >
+                    <h3 className="text-3xl">자바스크립트 · 인터랙션 구현</h3>
+                    <p className="mt-3">JavaScript 클래스 기반 로직 설계와 Three.js를 활용한 기본적인 3D 인터랙션 구현</p>
+                </ListItems>
             </motion.div>
         </div>
         <div className="flex-1">
             <ListItems>
                 <p className="text-3xl">모두의 연구소 • 위니브 프론트엔드 부트캠프</p>
                 <p className="mt-3 text-gray-300">2025.07~2025.11</p>
+                <p className="mt-6">프론트엔드 기초부터 React/Typescript까지<br /> 단계적으로 학습하며<br />
+                    개인 프로젝트 1건과 팀 프로젝트 2건을 통해<br />
+                    UI구현, 로직 설계, 협업 경험을 쌓았습니다.
+                </p>
             </ListItems>
         </div>
         </div>
@@ -33,9 +45,8 @@ export default function BootCampInner() {
         <AnimatePresence>
         {selected === "frontend-basic" && (
             <Modal onClick={() => setSelected(null)}>
-                <motion.div
+                <ListModalWrapper
                     layoutId="frontend-basic"
-                    className="w-[1120px] rounded-2xl bg-(--background_color) py-10 px-7"
                 >
                     <h3 className="text-3xl">프론트엔드 기초 역량</h3>
                     <div className="relative">
@@ -60,9 +71,11 @@ export default function BootCampInner() {
                                 </div>
                             </div>
                         </div>
-
+                        <div className="mt-10">
+                            <img src="/image/bootcamp-project1-pc.png" alt="" />
+                        </div>
                     </div>
-                </motion.div>
+                </ListModalWrapper>
             </Modal>
         )}
         </AnimatePresence>
@@ -76,4 +89,14 @@ const ListItems =styled(motion.div)`
     padding: 35px 20px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
+`
+
+const ListModalWrapper = styled(motion.div)`
+    max-width: 850px;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--background_color);
+    padding: 35px 20px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
 `
