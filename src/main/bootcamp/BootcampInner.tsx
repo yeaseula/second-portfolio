@@ -92,6 +92,8 @@ const ListItems =styled(motion.div)`
 `
 
 const ListModalWrapper = styled(motion.div)`
+    position: relative;
+    z-index: 5;
     max-width: 850px;
     width: 100%;
     border-radius: 12px;

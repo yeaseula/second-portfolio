@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion"
 
 const PosterList = styled(motion.div)`
     position: relative;
+    z-index: 3;
     max-width: 302px;
     width: 100%;
 `
@@ -73,9 +74,7 @@ export default function PostCard({ data }: {data:projectInforType}) {
                     onClick={()=>{
                         openModal(data.contentsId)
                     }}
-                    >
-                        자세히 보기
-                    </Button>
+                    >자세히 보기</Button>
                 </motion.div>
                 </HoverContainer>
             </motion.div>
@@ -89,6 +88,8 @@ export default function PostCard({ data }: {data:projectInforType}) {
                 <motion.div
                     layoutId={selected || ""}
                     style={{
+                        position: 'relative',
+                        zIndex:10,
                         height: 'calc(100vh - 100px)',
                         maxWidth: '850px',
                         width: '100%',

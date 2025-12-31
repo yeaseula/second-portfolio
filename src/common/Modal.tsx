@@ -3,11 +3,19 @@ import React, { useEffect } from "react";
 
 import { motion } from "framer-motion"
 
-const Container = styled(motion.div)`
+const Wrapper = styled(motion.div)`
     position: fixed;
     inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+}`
+const ModalBack = styled(motion.div)`
+    position: absolute;
+    inset: 0;
     background-color: rgba(0,0,0,0.7);
-    z-index: 10;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,14 +38,16 @@ export default function Modal({onClick,children}:ModalProps){
 
     return (
         <>
-            <Container
+        <Wrapper>
+            <ModalBack
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClick}
             >
-                {children}
-            </Container>
+            </ModalBack>
+            {children}
+        </Wrapper>
         </>
     )
 }

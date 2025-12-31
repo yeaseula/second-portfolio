@@ -7,10 +7,22 @@ import { AllPortfolioTypes } from "../../types/portfolio"
 import { parseMarkdownByTab } from "../../types/mdType"
 import ReactFocusLock from "react-focus-lock"
 
-const ModalComponent = styled.div`
+const ModalWrapper = styled.section`
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 30;
+    // max-width: 850px;
+    //width: 100%;
+    //height: calc(100vh - 100px);
+    overflow-y: auto;
     border-radius: 12px;
-    background-color: #424242;
+    background-color: var(--background_color);
     color: #fff;
+`
+const ModalComponent = styled.div`
+
 `
 const VideoContainer = styled.div`
     width: 100%;
@@ -59,18 +71,16 @@ const ProjectDetail = memo(({contentsId}:{contentsId:string | null})=>{
 
     return(
         <ReactFocusLock>
-        <section
+        <ModalWrapper
         ref={tabRef}
         onScroll={handleScroll}>
-        <ModalComponent>
             <h2 className="sr-only">상세 설명</h2>
             <VideoContainer>동영상 영역</VideoContainer>
             <DescriptionContainer>
                 <DetailTop targetdata={targetdata.topDataType}/>
                 <TabContents contentsId={contentsId} targetRef={tabRef} tabContent={targetdata.tapDataType}/>
             </DescriptionContainer>
-        </ModalComponent>
-        </section>
+        </ModalWrapper>
         </ReactFocusLock>
     )
 })
