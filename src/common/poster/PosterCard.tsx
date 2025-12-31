@@ -13,14 +13,9 @@ const PosterList = styled(motion.div)`
     width: 100%;
 `
 
-const HoverContainer = styled.div<{$moreview:boolean}>`
+const HoverContainer = styled.div`
     width: 100%;
     height: 100%;
-    position: absolute;
-    top:0;
-    left: 0;
-    opacity: ${(p)=>p.$moreview ? 1 : 0};
-    z-index: ${(p)=>p.$moreview ? 10 : -99};
     background-color: rgba(0,0,0,0.45);
     display: flex;
     justify-content: center;
@@ -59,22 +54,32 @@ export default function PostCard({ data }: {data:projectInforType}) {
                     {data.srOnly}
                 </figcaption>
             </figure>
-
-            <HoverContainer
-            role="button"
-            aria-hidden={!moreview}
-            $moreview={moreview}>
-            <motion.div layout className="grid gap-4">
-                <Button
-                type="button"
-                onClick={()=>{
-                    openModal(data.contentsId)
-                }}
+            {moreview &&
+            <motion.div
+                initial={{
+                    position: 'absolute', top: 0, left: 0 ,
+                    width: '100%',height:'100%',
+                    opacity: 0}}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                <HoverContainer
+                role="button"
+                aria-hidden={!moreview}
                 >
-                    자세히 보기
-                </Button>
+                <motion.div layout>
+                    <Button
+                    type="button"
+                    onClick={()=>{
+                        openModal(data.contentsId)
+                    }}
+                    >
+                        자세히 보기
+                    </Button>
+                </motion.div>
+                </HoverContainer>
             </motion.div>
-            </HoverContainer>
+            }
             </PosterList>
             </motion.div>
 
