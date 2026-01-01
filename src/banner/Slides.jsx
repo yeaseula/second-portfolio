@@ -1,6 +1,6 @@
-import Logo from "../../common/Logo"
+import Logo from "../common/Logo"
 import styled from "styled-components"
-import Button from "../../common/Button"
+import Button from "../common/Button"
 
 const SlidesContainer = styled.div`
     width: 100%;

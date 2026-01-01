@@ -1,5 +1,5 @@
-import PosterWrapper from "../../common/poster/PosterWrapper"
-import Logo from "../../common/Logo"
+import PosterWrapper from "../common/ContentsWrapper"
+import Logo from "../common/Logo"
 import BootCampInner from "../bootcamp/BootcampInner"
 
 export default function BootCamp() {

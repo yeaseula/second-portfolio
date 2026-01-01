@@ -8,7 +8,7 @@ const PosterWrap = styled.article`
     margin-top: 20px;
 `
 
-export default function PosterWrapper({
+export default function ContentsWrapper({
     title,
     screenReader,
     children

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Modal from "../../common/Modal"
+import Modal from "../common/Modal"
 
 export default function BootCampInner() {
     const HoverRef = useRef<HTMLDivElement>(null)

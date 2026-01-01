@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Button from "../Button";
+import Button from "../../common/Button";
 import { projectInforType } from "../../types/dataType";
 import { usePosterModal } from "../../hook/useModal";
-import Modal from "../Modal";
-import ProjectDetail from "../../main/detail/ProjectDetail";
+import Modal from "../../common/Modal";
+import ProjectDetail from "../detail/ProjectDetail";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion"
 
