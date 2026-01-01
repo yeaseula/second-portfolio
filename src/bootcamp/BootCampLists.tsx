@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { bootcampInforType } from "../types/bootcamp"
 import { usePosterModal } from "../hook/useModal"
 import Modal from "../common/Modal"
+import BootCampDetail from "./BootCampDetail"
 
 export default function BootCampLists({data}:{data:bootcampInforType}) {
     const HoverRef = useRef<HTMLDivElement>(null)
@@ -42,11 +43,12 @@ export default function BootCampLists({data}:{data:bootcampInforType}) {
         <ListInner
         onMouseEnter={()=>setPointer(true)}
         onMouseLeave={()=>setPointer(false)}
+        $modal={modal}
         >
             <ListItems
                 ref={ItemListRef}
                 layoutId={data.layoutId}
-                onClick={() => setSelected(data.layoutId)}
+                onClick={()=>openModal(data.layoutId)}
                 className="cursor-pointer"
                 onMouseMove={handlePointer}
                 whileHover={{ transform: 'translateY(-3px)' }}
@@ -63,37 +65,12 @@ export default function BootCampLists({data}:{data:bootcampInforType}) {
         </ListInner>
         <AnimatePresence>
         {selected === data.layoutId && (
-            <Modal onClick={() => setSelected(null)}>
+            <Modal onClick={closeModal}>
                 <ListModalWrapper
                     layoutId={data.layoutId}
+                    role="dialog"
                 >
-                    <h3 className="text-3xl">프론트엔드 기초 역량</h3>
-                    <div className="relative">
-                        <div className="mt-10">
-                            <h3>학습 내용</h3>
-                            <p className="mt-5 mb-3">HTML / CSS </p>
-
-                            <p>• 시멘틱 마크업, 접근성을 고려한 설계가 가능합니다.</p>
-                            <p>• Safari 환경에서의 CSS 크로스 브라우징 이슈 해결 경험이 있습니다.</p>
-                            <p>• 개인,팀 프로젝트에 학습 내용을 적용하며 공부합니다.</p>
-                        </div>
-                        <div className="mt-10">
-                            <h3>관련 프로젝트</h3>
-                            <div className="mt-5">
-                                <div className="text-">
-                                    <p>프로젝트 개요 : HTML/CSS 기반 미니 프로젝트 2개 제작 및 발표</p>
-                                    <p>역할 : 시멘틱 마크업, 반응형 작업 </p>
-                                    <p>성과 : 최종 발표 <b>대상(1등)</b> 수상</p>
-                                    <div className="mt-5">
-                                        <button>git hub 보러가기</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-10">
-                            <img src="/image/bootcamp-project1-pc.png" alt="" />
-                        </div>
-                    </div>
+                <BootCampDetail layoutId={data.layoutId} />
                 </ListModalWrapper>
             </Modal>
         )}
@@ -102,7 +79,7 @@ export default function BootCampLists({data}:{data:bootcampInforType}) {
     )
 }
 
-const ListInner = styled.div`
+const ListInner = styled.div<{$modal:boolean}>`
     position: relative;
     &::before {
         content: "";
@@ -115,6 +92,7 @@ const ListInner = styled.div`
         border-radius: 10px;
         filter: blur(2px);
         transition: all 0.3s ease-in-out;
+        opacity: ${(p)=>p.$modal ? 0 : 1}
     }
     &:hover::before {
         transform: translateY(-3px);

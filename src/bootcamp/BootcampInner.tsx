@@ -21,7 +21,7 @@ export default function BootCampInner({data}:{data:bootcampInforType[]}) {
             <div className="flex-2">
                 <ListWrapper>
                     {data.map((ele)=>(
-                        <BootCampLists data={ele} />
+                        <BootCampLists key={ele.layoutId} data={ele} />
                     ))}
                 </ListWrapper>
             </div>
