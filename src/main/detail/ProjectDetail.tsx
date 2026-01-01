@@ -11,9 +11,6 @@ const ModalWrapper = styled.section`
     background-color: var(--background_color);
     color: #fff;
 `
-const ModalComponent = styled.div`
-
-`
 const VideoContainer = styled.div`
     width: 100%;
     height: 350px;

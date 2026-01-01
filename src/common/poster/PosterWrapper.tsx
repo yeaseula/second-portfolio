@@ -10,14 +10,17 @@ const PosterWrap = styled.article`
 
 export default function PosterWrapper({
     title,
+    screenReader,
     children
 } : {
     title: React.ReactNode
+    screenReader?: string;
     children: React.ReactNode}) {
 
     return (
         <section style={{ marginTop: '80px' }}>
             {title}
+            <h2 className="sr-only">{screenReader}</h2>
             <PosterWrap>
                 {children}
             </PosterWrap>

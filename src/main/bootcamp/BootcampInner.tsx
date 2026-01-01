@@ -1,45 +1,89 @@
 import styled from "styled-components"
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { AnimatePresence } from "framer-motion"
+import { useRef, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Modal from "../../common/Modal"
 
 export default function BootCampInner() {
+    const HoverRef = useRef<HTMLDivElement>(null)
+    const ItemListRef = useRef<HTMLButtonElement>(null)
+    const [rect, setRect] = useState<DOMRect | null>(null)
+    const [pointer,setPointer] = useState<boolean>(false)
+    const [hoverPos,setHoverPos] = useState({left: 0, top: 0})
+
+    const handlePointer = (e:React.MouseEvent<HTMLButtonElement>) => {
+        if(!ItemListRef.current) return
+
+        const pointer = ItemListRef.current.getBoundingClientRect()
+        setRect(pointer)
+
+        if(!rect) return
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+        setHoverPos(hoverPos=>({
+            ...hoverPos,
+            left: x,
+            top: y
+        }))
+
+        console.log(e.clientY + ':clientX ///' + rect.left)
+    }
 
     const [selected, setSelected] = useState<string | null>(null)
     return (
         <>
         <div className="flex gap-5">
-        <div className="flex-2">
-            <motion.div layout className="grid gap-4">
-                <ListItems
-                    layoutId="frontend-basic"
-                    onClick={() => setSelected("frontend-basic")}
-                    className="cursor-pointer"
-                >
-                    <h3 className="text-3xl">프론트엔드 기초 역량</h3>
-                    <p className="mt-3">HTML/CSS 시멘틱 마크업과 접근성을 고려한 코드 작성</p>
+            <div className="flex-2">
+                <ListWrapper>
+                    <ListInner
+                    onMouseEnter={()=>setPointer(true)}
+                    onMouseLeave={()=>setPointer(false)}
+                    >
+                        <ListItems
+                            ref={ItemListRef}
+                            layoutId="frontend-basic"
+                            onClick={() => setSelected("frontend-basic")}
+                            className="cursor-pointer"
+                            onMouseMove={handlePointer}
+                            whileHover={{ transform: 'translateY(-3px)' }}
+                        >
+                            <h3 className="text-3xl">프론트엔드 기초 역량</h3>
+                            <p className="mt-3">HTML/CSS 시멘틱 마크업과 접근성을 고려한 코드 작성</p>
+                            <HoverShow
+                            ref={HoverRef}
+                            $pointer={pointer}
+                            $hoverPosX={hoverPos.left}
+                            $hoverPosY={hoverPos.top}
+                            />
+                        </ListItems>
+                    </ListInner>
+                    <ListItems
+                        layoutId="frontend-deepening"
+                        onClick={() => setSelected("frontend-deepening")}
+                        className="cursor-pointer "
+                    >
+                        <h3 className="text-3xl">자바스크립트 · 인터랙션 구현</h3>
+                        <p className="mt-3">JavaScript 클래스 기반 로직 설계와 Three.js를 활용한 기본적인 3D 인터랙션 구현</p>
+                    </ListItems>
+                    <ListItems
+                        layoutId="frontend-react"
+                        onClick={() => setSelected("frontend-react")}
+                        className="cursor-pointer "
+                    >
+                        <h3 className="text-3xl">React · Typescript</h3>
+                        <p className="mt-3">상태 복잡도에 따라 컴포넌트를 분리, 타입 정의를 통해 유지보수 가능한 로직 구현</p>
+                    </ListItems>
+                </ListWrapper>
+            </div>
+            <div className="flex-1">
+                <ListItems>
+                    <p className="text-3xl">모두의 연구소 • 위니브 프론트엔드 부트캠프</p>
+                    <p className="mt-3 text-gray-300">2025.07~2025.11</p>
+                    <p className="mt-6">프론트엔드 기초부터 React/Typescript까지<br /> 단계적으로 학습하며<br />
+                        개인 프로젝트 1건과 팀 프로젝트 2건을 통해<br />
+                        UI구현, 로직 설계, 협업 경험을 쌓았습니다.
+                    </p>
                 </ListItems>
-                <ListItems
-                    layoutId="frontend-deepening"
-                    onClick={() => setSelected("frontend-deepening")}
-                    className="cursor-pointer"
-                >
-                    <h3 className="text-3xl">자바스크립트 · 인터랙션 구현</h3>
-                    <p className="mt-3">JavaScript 클래스 기반 로직 설계와 Three.js를 활용한 기본적인 3D 인터랙션 구현</p>
-                </ListItems>
-            </motion.div>
-        </div>
-        <div className="flex-1">
-            <ListItems>
-                <p className="text-3xl">모두의 연구소 • 위니브 프론트엔드 부트캠프</p>
-                <p className="mt-3 text-gray-300">2025.07~2025.11</p>
-                <p className="mt-6">프론트엔드 기초부터 React/Typescript까지<br /> 단계적으로 학습하며<br />
-                    개인 프로젝트 1건과 팀 프로젝트 2건을 통해<br />
-                    UI구현, 로직 설계, 협업 경험을 쌓았습니다.
-                </p>
-            </ListItems>
-        </div>
+            </div>
         </div>
 
         <AnimatePresence>
@@ -136,17 +180,55 @@ export default function BootCampInner() {
         </>
     )
 }
-
+const ListWrapper = styled(motion.div)`
+    display: grid;
+    gap: 10px;
+`
+const ListInner = styled.div`
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        background: linear-gradient(45deg, #00bfff, var(--main_color));
+        border-radius: 10px;
+        filter: blur(2px);
+        transition: all 0.3s ease-in-out;
+    }
+    &:hover::before {
+        transform: translateY(-3px);
+        filter: blur(8px);
+        background: linear-gradient(45deg, #00e0ff, var(--main_right_color));
+    }
+`
 const ListItems =styled(motion.button)`
+    position: relative;
     width: 100%;
     height: 100%;
     padding: 35px 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #616161;
     border-radius: 10px;
-
+    overflow: hidden;
+    //background: linear-gradient(180deg, #232223 0%, #1e2430 33%, #161a22 66%, #1f2320 100%);
+    background-color: var(--black_color);
     &:focus-visible {
         outline: 2px solid var(--main_color)
     }
+`
+const HoverShow = styled.div<{$pointer:boolean, $hoverPosX:number, $hoverPosY:number}>`
+    position: absolute;
+    top: ${(p)=>p.$hoverPosY || 0}px;
+    left: ${(p)=>p.$hoverPosX || 0}px;
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    transform: translate(-50%, -50%) rotateZ(40deg);
+    background-color: #ffffff22;
+    opacity: ${(p)=>p.$pointer ? 1 : 0};
+    filter: blur(20px);
 `
 
 const ListModalWrapper = styled(motion.div)`
@@ -157,6 +239,6 @@ const ListModalWrapper = styled(motion.div)`
     border-radius: 12px;
     background-color: var(--background_color);
     padding: 35px 20px;
-    height: calc(100vh - 40px);
+    height: calc(100vh - 100px);
     overflow-y: auto;
 `
