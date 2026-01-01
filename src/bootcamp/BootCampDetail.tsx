@@ -33,16 +33,52 @@ const Container = styled.div`
         font-size: 2rem;
     }
     h3 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
+        margin: 15px 0 10px 0;
+        padding-bottom: 10px;
+    }
+    h4 {
         margin: 15px 0 10px 0;
     }
+    h5 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin: 10px 0 6px 0;
+    }
+    hr { margin-top: 10px; }
     ul {
         display: grid;
         gap: 7px;
-        margin: 5px 0 10px 0;
+        strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+    }
+
+    li:has(>img) {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin: 5px 0;
+    }
+    li > img {
+        width: 50%;
     }
     p:has(>a) {
         margin-top: 20px;
+    }
+    em { color: var(--main_right_color); }
+    blockquote {
+        margin-bottom: 20px;
+        p {
+            display: grid;
+            color: #bdbdbd;
+            font-size: 1.3rem;
+        }
+        strong {
+            font-size: 1.6rem;
+            color: var(--white_color);
+        }
     }
 
     a {
