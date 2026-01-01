@@ -1,6 +1,6 @@
 import { bootcampInforType } from "../types/bootcamp";
 
-export const bootCamp:bootcampInforType[] = [
+export const bootCampInfo:bootcampInforType[] = [
     {
         layoutId: 'frontend-basic',
         title: '프론트엔드 기초 역량',

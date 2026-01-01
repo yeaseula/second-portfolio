@@ -2,74 +2,27 @@ import styled from "styled-components"
 import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Modal from "../common/Modal"
+import { bootcampInforType } from "../types/bootcamp"
+import BootCampLists from "./BootCampLists"
+import { usePosterModal } from "../hook/useModal"
 
-export default function BootCampInner() {
-    const HoverRef = useRef<HTMLDivElement>(null)
-    const ItemListRef = useRef<HTMLButtonElement>(null)
-    const [rect, setRect] = useState<DOMRect | null>(null)
-    const [pointer,setPointer] = useState<boolean>(false)
-    const [hoverPos,setHoverPos] = useState({left: 0, top: 0})
+export default function BootCampInner({data}:{data:bootcampInforType[]}) {
+    const {
+        moreview,modal,contentId,selected,
+        setSelected,
+        setContentId,
+        showMore,hideMore,
+        openModal, closeModal
+    } = usePosterModal()
 
-    const handlePointer = (e:React.MouseEvent<HTMLButtonElement>) => {
-        if(!ItemListRef.current) return
-
-        const pointer = ItemListRef.current.getBoundingClientRect()
-        setRect(pointer)
-
-        if(!rect) return
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
-        setHoverPos(hoverPos=>({
-            ...hoverPos,
-            left: x,
-            top: y
-        }))
-    }
-
-    const [selected, setSelected] = useState<string | null>(null)
     return (
         <>
         <div className="flex gap-5">
             <div className="flex-2">
                 <ListWrapper>
-                    <ListInner
-                    onMouseEnter={()=>setPointer(true)}
-                    onMouseLeave={()=>setPointer(false)}
-                    >
-                        <ListItems
-                            ref={ItemListRef}
-                            layoutId="frontend-basic"
-                            onClick={() => setSelected("frontend-basic")}
-                            className="cursor-pointer"
-                            onMouseMove={handlePointer}
-                            whileHover={{ transform: 'translateY(-3px)' }}
-                        >
-                            <h3 className="text-3xl">프론트엔드 기초 역량</h3>
-                            <p className="mt-3">HTML/CSS 시멘틱 마크업과 접근성을 고려한 코드 작성</p>
-                            <HoverShow
-                            ref={HoverRef}
-                            $pointer={pointer}
-                            $hoverPosX={hoverPos.left}
-                            $hoverPosY={hoverPos.top}
-                            />
-                        </ListItems>
-                    </ListInner>
-                    <ListItems
-                        layoutId="frontend-deepening"
-                        onClick={() => setSelected("frontend-deepening")}
-                        className="cursor-pointer "
-                    >
-                        <h3 className="text-3xl">자바스크립트 · 인터랙션 구현</h3>
-                        <p className="mt-3">JavaScript 클래스 기반 로직 설계와 Three.js를 활용한 기본적인 3D 인터랙션 구현</p>
-                    </ListItems>
-                    <ListItems
-                        layoutId="frontend-react"
-                        onClick={() => setSelected("frontend-react")}
-                        className="cursor-pointer "
-                    >
-                        <h3 className="text-3xl">React · Typescript</h3>
-                        <p className="mt-3">상태 복잡도에 따라 컴포넌트를 분리, 타입 정의를 통해 유지보수 가능한 로직 구현</p>
-                    </ListItems>
+                    {data.map((ele)=>(
+                        <BootCampLists data={ele} />
+                    ))}
                 </ListWrapper>
             </div>
             <div className="flex-1">
@@ -85,7 +38,7 @@ export default function BootCampInner() {
         </div>
 
         <AnimatePresence>
-        {selected === "frontend-basic" && (
+        {/* {selected === "frontend-basic" && (
             <Modal onClick={() => setSelected(null)}>
                 <ListModalWrapper
                     layoutId="frontend-basic"
@@ -119,8 +72,8 @@ export default function BootCampInner() {
                     </div>
                 </ListModalWrapper>
             </Modal>
-        )}
-        {selected === "frontend-deepening" && (
+        )} */}
+        {/* {selected === "frontend-deepening" && (
             <Modal onClick={() => setSelected(null)}>
                 <ListModalWrapper
                     layoutId="frontend-deepening"
@@ -173,7 +126,7 @@ export default function BootCampInner() {
                     </div>
                 </ListModalWrapper>
             </Modal>
-        )}
+        )} */}
         </AnimatePresence>
         </>
     )
@@ -181,26 +134,6 @@ export default function BootCampInner() {
 const ListWrapper = styled(motion.div)`
     display: grid;
     gap: 10px;
-`
-const ListInner = styled.div`
-    position: relative;
-    &::before {
-        content: "";
-        position: absolute;
-        top: -1px;
-        left: -1px;
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
-        background: linear-gradient(45deg, #00bfff, var(--main_color));
-        border-radius: 10px;
-        filter: blur(2px);
-        transition: all 0.3s ease-in-out;
-    }
-    &:hover::before {
-        transform: translateY(-3px);
-        filter: blur(8px);
-        background: linear-gradient(45deg, #00e0ff, var(--main_right_color));
-    }
 `
 const ListItems =styled(motion.button)`
     position: relative;
@@ -215,28 +148,4 @@ const ListItems =styled(motion.button)`
     &:focus-visible {
         outline: 2px solid var(--main_color)
     }
-`
-const HoverShow = styled.div<{$pointer:boolean, $hoverPosX:number, $hoverPosY:number}>`
-    position: absolute;
-    top: ${(p)=>p.$hoverPosY || 0}px;
-    left: ${(p)=>p.$hoverPosX || 0}px;
-    width: 120px;
-    height: 120px;
-    border-radius: 999px;
-    transform: translate(-50%, -50%) rotateZ(40deg);
-    background-color: #ffffff22;
-    opacity: ${(p)=>p.$pointer ? 1 : 0};
-    filter: blur(20px);
-`
-
-const ListModalWrapper = styled(motion.div)`
-    position: relative;
-    z-index: 5;
-    max-width: 850px;
-    width: 100%;
-    border-radius: 12px;
-    background-color: var(--background_color);
-    padding: 35px 20px;
-    height: calc(100vh - 100px);
-    overflow-y: auto;
 `
