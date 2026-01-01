@@ -1,5 +1,4 @@
-import { PortfolioType } from "../types/portfolio"
-import { projectInforType } from "../types/dataType"
+import { PortfolioType, projectInforType } from "../types/portfolio"
 
 export const SkillHashColor = {
     'Next.js': '',

@@ -24,8 +24,6 @@ export default function BootCampInner() {
             left: x,
             top: y
         }))
-
-        console.log(e.clientY + ':clientX ///' + rect.left)
     }
 
     const [selected, setSelected] = useState<string | null>(null)

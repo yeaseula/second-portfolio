@@ -1,4 +1,4 @@
-import { projectInforType } from "../../types/dataType";
+import { projectInforType } from "../../types/portfolio";
 import PostCard from "./PosterCard";
 
 
