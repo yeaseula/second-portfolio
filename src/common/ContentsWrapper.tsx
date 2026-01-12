@@ -1,10 +1,8 @@
-import styled from "styled-components"
 import React from "react"
+import styled from "styled-components"
 
 const PosterWrap = styled.article`
     width: 100%;
-    display: flex;
-    gap: 20px;
     margin-top: 20px;
 `
 

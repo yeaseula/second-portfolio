@@ -7,7 +7,7 @@ const Container = styled.div`
         margin: 25px 0 20px 0;
         display: inline-block;
         //box-shadow: inset 0 -8px 0 var(--main_color);
-        background: var(--black_color);
+        background: var(--main_color);
         display: block;
         width: fit-content;
         padding: 2px 16px;

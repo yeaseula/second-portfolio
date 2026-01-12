@@ -8,7 +8,7 @@ export const GlobalStyle =  createGlobalStyle`
     body {
         font-size: 1.6rem;
         background-color: var(--background_color);
-        color: var(--white_color);
+        //color: var(--white_color);
     }
     #root {
         overflow: hidden

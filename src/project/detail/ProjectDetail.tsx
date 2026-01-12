@@ -9,7 +9,6 @@ import ReactFocusLock from "react-focus-lock"
 
 const ModalWrapper = styled.section`
     background-color: var(--background_color);
-    color: #fff;
 `
 const VideoContainer = styled.div`
     width: 100%;

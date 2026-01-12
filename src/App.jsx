@@ -21,9 +21,9 @@ function App() {
     <Container>
       <Header />
       <main>
-        <Banner />
+        {/* <Banner /> */}
         <OriginalProject />
-        <PersonalProject />
+        {/* <PersonalProject /> */}
         <BootCamp />
       </main>
     </Container>

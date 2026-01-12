@@ -12,13 +12,9 @@ export default function BootCampLists({data}:{data:bootcampInforType}) {
     const [rect, setRect] = useState<DOMRect | null>(null)
     const [pointer,setPointer] = useState<boolean>(false)
     const [hoverPos,setHoverPos] = useState({left: 0, top: 0})
-    //const [selected, setSelected] = useState<string | null>(null)
 
     const {
-        moreview,modal,contentId,selected,
-        setSelected,
-        setContentId,
-        showMore,hideMore,
+        modal,selected,
         openModal, closeModal
     } = usePosterModal()
 

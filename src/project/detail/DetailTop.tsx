@@ -29,7 +29,7 @@ const LinkButtonContainer = styled.div`
 export default function DetailTop({targetdata}:{targetdata:PortfolioType}) {
     return (
         <>
-            <DefaultInfor>
+            {/* <DefaultInfor>
                 <span>{targetdata.title} · </span>
                 <span>{targetdata.period} · </span>
                 <span>{targetdata.contribution}</span>
@@ -37,19 +37,19 @@ export default function DetailTop({targetdata}:{targetdata:PortfolioType}) {
 
             <MainCopy>
                 {targetdata.description}
-            </MainCopy>
+            </MainCopy> */}
 
             {/* <DefaultInfor>
                 {targetdata.hashtags.map((tag,idx)=>(
                     <span key={`${tag}-${idx}`}>{tag}</span>
                 ))}
             </DefaultInfor> */}
-
+{/*
             <DefaultInfor>
                 {targetdata.skills.map((skill,idx)=>(
                     <HashTag key={`${skill}-${idx}`}>{skill}</HashTag>
                 ))}
-            </DefaultInfor>
+            </DefaultInfor> */}
 
             <LinkButtonContainer>
                 <a href={targetdata.github_url}>깃헙</a>
