@@ -7,7 +7,7 @@ import PosterInner from "./poster/PosterInner"
 export default function OriginalProject() {
 
     return (
-        <PosterWrapper title={<OriginalLogo fonts={'3rem'}/>}>
+        <PosterWrapper title={<OriginalLogo fonts={'3rem'} text={'PROJECT'}/>}>
             <PosterInner data={yeOriginal}/>
         </PosterWrapper>
     )

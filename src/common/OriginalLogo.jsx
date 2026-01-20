@@ -10,8 +10,8 @@ const LogoText = styled.p`
     }
 `
 
-export default function OriginalLogo({fonts}) {
+export default function OriginalLogo({fonts,text}) {
     return(
-        <LogoText fonts={fonts}>Project</LogoText>
+        <LogoText fonts={fonts}>{text}</LogoText>
     )
 }

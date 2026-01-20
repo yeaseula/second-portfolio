@@ -83,7 +83,7 @@ a { color: var(--black_color); text-decoration: none; }
 
 ul,li { list-style: none; }
 
-strong { font-family: 'Pretendard_Bold'; }
+strong, .ff-b { font-family: 'Pretendard_Bold'; }
 
 .sr-only {
   position: absolute;
@@ -99,6 +99,14 @@ img {
 
 button:focus-visible {
   outline: 2px solid var(--main_color);
+}
+/* 스크롤바 숨기기  */
+.scroll {
+  -ms-overflow-style: none; /* IE */
+  scrollbar-width: none; /* Firefox */
+}
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera, Edge */
 }
 
 @media (prefers-color-scheme: light) {

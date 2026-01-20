@@ -18,10 +18,10 @@ export default function Header () {
     return (
         <HeaderCont>
             <h1 className="sr-only">김예슬의 포트폴리오</h1>
-            <a href="">about me</a>
-            <a href="/">프로젝트</a>
-            <a href="">기술</a>
-            <a href="/activity">활동</a>
+            <a href="/introduce">Introduce</a>
+            <a href="/teamwork">Teamwork Skills</a>
+            <a href="/">Projects</a>
+            <a href="">Technical Skills</a>
              {/* <Navigation /> */}
         </HeaderCont>
     )
