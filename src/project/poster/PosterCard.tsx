@@ -38,7 +38,7 @@ export default function PostCard({ data }: {data:projectInforType}) {
 
     return (
         <>
-        <motion.div layout style={{ marginBottom: '25px' }}>
+        {/* <motion.div layout style={{ marginBottom: '25px' }}>
             <PosterList
             tabIndex={0}
             onMouseEnter={showMore}
@@ -124,7 +124,7 @@ export default function PostCard({ data }: {data:projectInforType}) {
                 </motion.div>
             </Modal>
             }
-            </AnimatePresence>
+            </AnimatePresence> */}
         </>
     )
 }

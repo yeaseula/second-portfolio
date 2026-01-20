@@ -5,7 +5,7 @@ import { TabContent } from "../../../types/portfolio"
 import { TABCONTENTS } from "../../../data/portfolio"
 import { TABCONTENTS_TYPE2 } from "../../../data/portfolio"
 
-export default function TabContents({contentsId, targetRef,tabContent}:{contentsId:string | null,tabContent:TabContent, targetRef:RefObject<HTMLDivElement | null>}) {
+export default function TabContents({contentsId, targetRef,tabContent}:{contentsId:string | undefined,tabContent:TabContent, targetRef:RefObject<HTMLDivElement | null>}) {
 
     const [activeTab,setActiveTab] = useState<number>(1)
 

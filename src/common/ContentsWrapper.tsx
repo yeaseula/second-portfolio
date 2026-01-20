@@ -11,7 +11,7 @@ export default function ContentsWrapper({
     screenReader,
     children
 } : {
-    title: React.ReactNode
+    title?: React.ReactNode
     screenReader?: string;
     children: React.ReactNode}) {
 
