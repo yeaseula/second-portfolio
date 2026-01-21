@@ -4,6 +4,7 @@ import ActiveTwo from "../activeTab/ActiveTwo"
 import ActiveThree from "../activeTab/ActiveThree"
 import ActiveFour from "../activeTab/ActiveFour"
 import { TabContent } from "../../../types/portfolio"
+import "../style/Detail.css"
 
 const Container = styled.div`
     padding-top: 40px;

@@ -1,38 +1,15 @@
-import styled from "styled-components"
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm"
 
-const Container = styled.div`
-    h3 {
-        margin: 25px 0 20px 0;
-        display: inline-block;
-        //box-shadow: inset 0 -8px 0 var(--main_color);
-        background: var(--main_color);
-        display: block;
-        width: fit-content;
-        padding: 2px 16px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        font-size: 1.6rem;
-        }
-    h3:first-of-type { margin-top: 0; }
-    ul {
-        li { margin-bottom: 5px }
-        li:last-of-type { margin-bottom: 0; }
-        li strong {
-            display: block;
-        }
-    }
-`
 
 export default function ActiveTwo({tabContent}: {tabContent:string | undefined}) {
     if(tabContent) {
         return (
-            <Container>
+            <div>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {tabContent}
                 </ReactMarkdown>
-            </Container>
+            </div>
         )
     }
     return (

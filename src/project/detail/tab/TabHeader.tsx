@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react"
 import styled from "styled-components"
 
-const TabHead = styled.ul`
+const TabHead = styled.div`
     margin-top: 40px;
     display: flex;
 `
-const TabInner = styled.li`
+const TabInner = styled.div`
     flex: 1;
 `
 const TabButton = styled.button<{$active:boolean}>`
