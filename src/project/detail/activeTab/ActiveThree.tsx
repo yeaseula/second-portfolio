@@ -1,35 +1,14 @@
-import styled from "styled-components"
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm"
 
-const Container = styled.div`
-    font-size: 1.6rem;
-    ol, ul {
-        margin-left: 15px;
-        margin-bottom: 10px;
-    };
-    ol:not(:first-child) {
-        margin-top: 35px;
-    }
-    ol > li {
-    list-style: decimal;
-    font-size: 1.8rem;
-    };
-    > ul > li {
-        list-style: disc
-    };
-    strong {
-
-    }
-`
 export default function ActiveThree({tabContent}:{tabContent: string | undefined}) {
     if(tabContent) {
         return (
-            <Container>
+            <div>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {tabContent}
             </ReactMarkdown>
-            </Container>
+            </div>
         )
     }
     return (

@@ -24,17 +24,20 @@ blockquote > p::before {
 
 ul > li {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 10px;
   margin-bottom: 3px;
 }
 ul > li::before {
   content: '';
   display: inline-block;
+  position: relative;
+  top: 9px;
   width: 6px;
   height: 6px;
   border:1px solid #323232;
   border-radius: 100px;
+  flex-shrink: 0;
 }
 
 ol { padding-left: 30px; margin: 5px 0 15px; }
