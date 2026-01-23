@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import "./App.css";
 import { AnimatePresence } from "framer-motion";
 import Landing from "./Landing";
@@ -23,11 +24,12 @@ function App() {
           <Container>
             <Header />
             <Routes>
-              <Route path="/introduce" element={<AboutMe />}></Route>
-              <Route path="/teamwork" element={<Teamwork />}></Route>
-              <Route path="/" element={<Project />}></Route>
-              <Route path="/detail/:id" element={<ProjectDetail />}></Route>
-              <Route path="/skills" element={<Skills />}></Route>
+              <Route path="/" element={<Navigate to="/introduce" replace />} />
+              <Route path="introduce" element={<AboutMe />}></Route>
+              <Route path="teamwork" element={<Teamwork />}></Route>
+              <Route path="project" element={<Project />}></Route>
+              <Route path="project/:id" element={<ProjectDetail />}></Route>
+              <Route path="skills" element={<Skills />}></Route>
             </Routes>
           </Container>
         </BrowserRouter>
