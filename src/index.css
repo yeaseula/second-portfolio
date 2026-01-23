@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,9 +7,9 @@
 
   color-scheme: light dark;
   --background_color: #232223;
-  --background_color: #fafafa;
-  --main_color : #00C9A7;
-  --main_right_color: #91dbce;
+  --background_color: #fffefc;
+  --main_color: #0f766e;
+  --main_right_color: #d2ece6;
   --white_color: #ffffff;
   --black_color: #000000;
 
@@ -20,46 +19,46 @@
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
-  font-family: 'BebasNeue';
-  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-family: "BebasNeue";
+  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
   ascent-override: 100%;
 }
 @font-face {
-  font-family: 'NotoSerifKR_Bold';
-  src: url('/fonts/NotoSerifKR-Bold.ttf') format('truetype');
+  font-family: "NotoSerifKR_Bold";
+  src: url("/fonts/NotoSerifKR-Bold.ttf") format("truetype");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: 'NotoSerifKR_Medium';
-  src: url('/fonts/NotoSerifKR-Medium.ttf') format('truetype');
+  font-family: "NotoSerifKR_Medium";
+  src: url("/fonts/NotoSerifKR-Medium.ttf") format("truetype");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Pretendard_Bold';
-  src: url('/fonts/Pretendard-Bold.subset.woff2') format('woff2');
+  font-family: "Pretendard_Bold";
+  src: url("/fonts/Pretendard-Bold.subset.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Pretendard_SemiBold';
-  src: url('/fonts/Pretendard-SemiBold.subset.woff2') format('woff2');
+  font-family: "Pretendard_SemiBold";
+  src: url("/fonts/Pretendard-SemiBold.subset.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Pretendard_Regular';
-  src: url('/fonts/Pretendard-Regular.subset.woff2') format('woff2');
+  font-family: "Pretendard_Regular";
+  src: url("/fonts/Pretendard-Regular.subset.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 
 * {
   line-height: 1.5;
-  font-family: 'Pretendard_Regular';
+  font-family: "Pretendard_Regular";
 }
 body {
   margin: 0;
@@ -77,13 +76,28 @@ h1 {
   line-height: 1.1;
 }
 
-h1,h2,h3,h4,h5 { font-family: 'Pretendard_Bold' }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Pretendard_Bold";
+}
 
-a { color: var(--black_color); text-decoration: none; }
+a {
+  color: var(--black_color);
+  text-decoration: none;
+}
 
-ul,li { list-style: none; }
+ul,
+li {
+  list-style: none;
+}
 
-strong, .ff-b { font-family: 'Pretendard_Bold'; }
+strong,
+.ff-b {
+  font-family: "Pretendard_Bold";
+}
 
 .sr-only {
   position: absolute;
