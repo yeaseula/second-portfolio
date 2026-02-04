@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import "./App.css";
 import { AnimatePresence } from "framer-motion";
@@ -7,12 +6,10 @@ import { GlobalStyle } from "./GlobalStyle";
 import Container from "./Container";
 import Header from "../header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Banner from "./banner/Banner";
 import Project from "./project/Project";
 import ProjectDetail from "./project/detail/ProjectDetail";
 import AboutMe from "./aboutme/about";
 import Teamwork from "./teamwork/teamwork";
-import BootCamp from "./bootcamp/BootCamp";
 import Skills from "./skills/skills";
 
 function App() {

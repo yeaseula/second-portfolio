@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { PortfolioType } from "../../types/portfolio";
 import { RiGithubFill, RiLinksFill } from "@remixicon/react";
 
