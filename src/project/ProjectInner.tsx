@@ -1,17 +1,20 @@
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { projectInforType } from "../types/portfolio";
-import PostCard from "./poster/PosterCard";
+import { SkillHashColor } from "../data/portfolio";
 
 export default function ProjectInner({ data }: { data: projectInforType[] }) {
   return (
     <main>
       {data.map((data) => (
-        <div key={data.contentsId} className="relative mb-9">
+        <div
+          key={data.contentsId}
+          className="relative mb-9 duration-250 hover:-translate-y-1"
+        >
           <NavLink
             to={`/project/${data.contentsId}`}
             className="absolute inset-0"
-          ></NavLink>
+          />
           <div className="w-full flex gap-8">
             <figure>
               <img
@@ -26,16 +29,27 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
             </figure>
             <div className="pt-4">
               <p className="flex gap-1.5 mb-5">
-                <span className="font-bold">{data.title}</span>
+                <span className="ff-b">{data.title}</span>
                 <span>·</span>
                 <span>{data.period}</span>
                 <span>·</span>
                 <span>{data.contribution}</span>
               </p>
               <div className="flex gap-2.5 mb-8">
-                {data.skills.map((ele) => (
-                  <HashTag key={ele}>{ele}</HashTag>
-                ))}
+                {data.skills.map((ele) => {
+                  const skill = SkillHashColor[ele];
+                  return (
+                    <HashTag
+                      key={ele}
+                      style={{
+                        backgroundColor: skill?.bg ?? "#E5E7EB",
+                        color: skill?.text ?? "#111827",
+                      }}
+                    >
+                      {ele}
+                    </HashTag>
+                  );
+                })}
               </div>
               <div>
                 {data.description.map((ele) => (

@@ -4,7 +4,7 @@ import { RiDownload2Line } from "@remixicon/react";
 
 export default function TeamworkInner() {
   return (
-    <section className="">
+    <section>
       <div>
         <h2 className="sr-only">팀 활동 역량</h2>
         <div className="mt-3 bg-(--main_right_color) py-4 px-5 rounded-xl">
@@ -30,13 +30,13 @@ export default function TeamworkInner() {
               <a
                 href={data.downloadFile}
                 download={data.downloadName}
-                className="inline-block border border-gray-400 rounded-full px-5 py-1"
+                className="inline-block border border-gray-400 bg-white rounded-full px-5 py-1 duration-200 hover:-translate-y-0.5"
               >
                 <RiDownload2Line size={16} className="inline-block mr-2" />
                 {data.downloadBtnName}
               </a>
             </div>
-            <div className="w-200">
+            <div className="w-200 border border-gray-200 rounded-xl overflow-hidden">
               <img src={data.imageFile} alt={data.imageAlt} />
             </div>
           </div>
@@ -56,7 +56,10 @@ export default function TeamworkInner() {
                 >
                   <div className="flex gap-9 image-container">
                     {cont.imageFile.map((img) => (
-                      <div key={img}>
+                      <div
+                        key={img}
+                        className="border border-gray-200 rounded-xl overflow-hidden"
+                      >
                         <img src={img} alt={cont.imageAlt} />
                       </div>
                     ))}
