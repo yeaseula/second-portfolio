@@ -1,42 +1,49 @@
-import styled from "styled-components";
 import { TeamWorkData, TeamWorkData2 } from "../data/teamwork/teamwork";
 import { RiDownload2Line } from "@remixicon/react";
+import clsx from "clsx";
 
 export default function TeamworkInner() {
+  const DescrpitionClasses = "relative pl-5 mb-1.5";
+  const DescClasses =
+    "absolute top-2.5 left-1 inline-block w-[6px] h-[6px] rounded-full border border-gray-700 bg-white";
+
   return (
     <section>
       <div>
         <h2 className="sr-only">팀 활동 역량</h2>
-        <div className="mt-3 bg-(--main_right_color) py-4 px-5 rounded-xl">
-          함께 성장하며, 기여하는 문화를 구축하기 위해 노력했습니다.
-          <br />
+        <div className="mt-3 bg-main-lignt py-5 px-4 rounded-xl whitespace-pre-line text-base">
+          함께 성장하며, 기여하는 문화를 구축하기 위해 노력했습니다. {"\n"}
           이러한 역량을 바탕으로 기획, 디자인, 개발 전반적인 프로세스에서 의견을
-          제시할 수 있고
-          <br />
-          문서화를 통해 프로세스를 공유하려 노력합니다.
+          제시할 수 있고 {"\n"}문서화를 통해 프로세스를 공유하려 노력합니다.
         </div>
         {TeamWorkData.map((data) => (
           <div
             key={data.id}
-            className="flex gap-9 mt-10 border-b border-gray-300 pb-10"
+            className="flex gap-7 mt-10 border-b border-gray-300 pb-10"
           >
             <div className="flex-1">
-              <p className="ff-b text-3xl mb-4">{data.title}</p>
+              <p className="text-md font-extrabold mb-2">{data.title}</p>
               <div className="mb-6">
                 {data.contents.map((contents) => (
-                  <Descrpition key={contents.id}> {contents.data}</Descrpition>
+                  <div className={DescrpitionClasses} key={contents.id}>
+                    <span className={DescClasses} />
+                    {contents.data}
+                  </div>
                 ))}
               </div>
               <a
                 href={data.downloadFile}
                 download={data.downloadName}
-                className="inline-block border border-gray-400 bg-white rounded-full px-5 py-1 duration-200 hover:-translate-y-0.5"
+                className="inline-block border border-gray-400 bg-white rounded-full px-5 pb-1 pt-0.5 duration-200 hover:-translate-y-0.5"
               >
-                <RiDownload2Line size={16} className="inline-block mr-2" />
+                <RiDownload2Line
+                  size={17}
+                  className="inline-block mr-2 relative -top-0.5"
+                />
                 {data.downloadBtnName}
               </a>
             </div>
-            <div className="w-200 border border-gray-200 rounded-xl overflow-hidden">
+            <div className="w-130 border border-gray-200 rounded-xl overflow-hidden">
               <img src={data.imageFile} alt={data.imageAlt} />
             </div>
           </div>
@@ -44,17 +51,20 @@ export default function TeamworkInner() {
 
         {TeamWorkData2.map((data) => (
           <div key={data.id} className="mt-10 border-b border-gray-300 pb-10">
-            <p className="ff-b text-3xl mb-4">{data.title}</p>
+            <p className="text-md font-extrabold mb-4">{data.title}</p>
             {data.titledes.map((des) => (
-              <Descrpition key={des.id}>{des.data}</Descrpition>
+              <div className={DescrpitionClasses} key={des.id}>
+                <span className={DescClasses} />
+                {des.data}
+              </div>
             ))}
-            <div className="mt-14 grid grid-cols-2 gap-9">
+            <div className="mt-9 grid grid-cols-2 gap-3 gap-y-8">
               {data.contents.map((cont) => (
                 <div
                   key={cont.id}
-                  className={cont.id === "content-2-3" ? "col-span-2" : ""}
+                  className={clsx(cont.id === "content-2-3" && "col-span-2")}
                 >
-                  <div className="flex gap-9 image-container">
+                  <div className="flex gap-3 image-container">
                     {cont.imageFile.map((img) => (
                       <div
                         key={img}
@@ -64,9 +74,12 @@ export default function TeamworkInner() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-5 text">
+                  <div className="mt-5">
                     {cont.des.map((des) => (
-                      <Descrpition key={des.id}>{des.contents}</Descrpition>
+                      <div className={DescrpitionClasses} key={des.id}>
+                        <span className={DescClasses} />
+                        {des.contents}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -78,21 +91,3 @@ export default function TeamworkInner() {
     </section>
   );
 }
-
-const Descrpition = styled.p`
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 5px;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 9px;
-    left: 10px;
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border: 1px solid #757575;
-    border-radius: 100px;
-    background: #fff;
-  }
-`;

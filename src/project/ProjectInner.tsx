@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { projectInforType } from "../types/portfolio";
-import { SkillHashColor } from "../data/portfolio";
+import { projectInforType } from "./types/type";
+import { SkillHashColor } from "./data/skills";
+import clsx from "clsx";
 
 export default function ProjectInner({ data }: { data: projectInforType[] }) {
   return (
-    <main>
+    <section>
       {data.map((data) => (
         <div
           key={data.contentsId}
@@ -15,7 +15,7 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
             to={`/project/${data.contentsId}`}
             className="absolute inset-0"
           />
-          <div className="w-full flex gap-8">
+          <div className="w-full flex gap-5">
             <figure>
               <img
                 src={data.src}
@@ -28,18 +28,22 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
               <figcaption className="sr-only">{data.srOnly}</figcaption>
             </figure>
             <div className="pt-4">
-              <p className="flex gap-1.5 mb-5">
-                <span className="ff-b">{data.title}</span>
+              <p className="flex gap-1.5 mb-5 text-md font-extrabold">
+                <span>{data.title}</span>
                 <span>·</span>
-                <span>{data.period}</span>
+                <span className="tracking-tighter">{data.period}</span>
                 <span>·</span>
                 <span>{data.contribution}</span>
               </p>
-              <div className="flex gap-2.5 mb-8">
+              <div className="flex gap-2 mb-4">
                 {data.skills.map((ele) => {
-                  const skill = SkillHashColor[ele];
+                  const skill =
+                    SkillHashColor[ele as keyof typeof SkillHashColor];
                   return (
-                    <HashTag
+                    <span
+                      className={clsx(
+                        "rounded-full font-pretendard text-xs py-1 px-3 inline-block bg-[#E5E7EB]",
+                      )}
                       key={ele}
                       style={{
                         backgroundColor: skill?.bg ?? "#E5E7EB",
@@ -47,7 +51,7 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
                       }}
                     >
                       {ele}
-                    </HashTag>
+                    </span>
                   );
                 })}
               </div>
@@ -60,14 +64,6 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
           </div>
         </div>
       ))}
-    </main>
+    </section>
   );
 }
-
-const HashTag = styled.span`
-  border-radius: 50px;
-  background-color: pink;
-  font-size: 1.4rem;
-  color: #000000;
-  padding: 1px 10px;
-`;

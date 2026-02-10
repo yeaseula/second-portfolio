@@ -1,22 +1,11 @@
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import ContentsWrapper from "../../common/ContentsWrapper";
 import DetailTop from "./DetailTop";
 import TabContents from "./tab/TabContents";
 import { memo, useEffect, useRef, useState } from "react";
-import { portfolio } from "../../data/portfolio";
+import { portfolioDetail } from "./data/portfolio";
 import { AllPortfolioTypes } from "../../types/portfolio";
 import { parseMarkdownByTab } from "../../types/mdType";
-
-const VideoContainer = styled.div`
-  width: 100%;
-  height: 350px;
-  background: skyblue;
-`;
-const DescriptionContainer = styled.div`
-  position: relative;
-  padding: 30px 0;
-`;
 
 const ProjectDetail = memo(() => {
   const { id } = useParams();
@@ -30,7 +19,7 @@ const ProjectDetail = memo(() => {
 
   useEffect(() => {
     if (!id) return;
-    const target = portfolio.find((val) => val.id === id);
+    const target = portfolioDetail.find((val) => val.id === id);
     if (!target) return;
     import(`../../data/portfolio-content/${id}.md?raw`).then((module) => {
       const parsed = parseMarkdownByTab(module.default);
@@ -47,18 +36,16 @@ const ProjectDetail = memo(() => {
 
   return (
     <ContentsWrapper>
-      <>
-        <h2 className="sr-only">상세 설명</h2>
-        <VideoContainer>동영상 영역</VideoContainer>
-        <DescriptionContainer>
-          <DetailTop targetdata={targetdata.topDataType} />
-          <TabContents
-            contentsId={id}
-            targetRef={tabRef}
-            tabContent={targetdata.tapDataType}
-          />
-        </DescriptionContainer>
-      </>
+      <h2 className="sr-only">상세 설명</h2>
+      <div className="w-full h-100 bg-main-lignt">동영상 영역</div>
+      <div className="relative py-7">
+        <DetailTop targetdata={targetdata.topDataType} />
+        <TabContents
+          contentsId={id}
+          targetRef={tabRef}
+          tabContent={targetdata.tapDataType}
+        />
+      </div>
     </ContentsWrapper>
   );
 });

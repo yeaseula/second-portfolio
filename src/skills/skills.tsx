@@ -4,9 +4,7 @@ import SkillsInner from "./skillsInner";
 
 export default function Skills() {
   return (
-    <ContentsWrapper
-      title={<OriginalLogo fonts={"3rem"} text={"Technical Skills"} />}
-    >
+    <ContentsWrapper title={<OriginalLogo text={"Technical Skills"} />}>
       <SkillsInner />
     </ContentsWrapper>
   );

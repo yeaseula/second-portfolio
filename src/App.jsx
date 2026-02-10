@@ -2,7 +2,6 @@ import { Navigate } from "react-router-dom";
 import "./App.css";
 import { AnimatePresence } from "framer-motion";
 import Landing from "./Landing";
-import { GlobalStyle } from "./GlobalStyle";
 import Container from "./Container";
 import Header from "../header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +15,6 @@ import Activity from "./activity/activity";
 function App() {
   return (
     <>
-      <GlobalStyle />
       <AnimatePresence>
         <BrowserRouter>
           <Container>

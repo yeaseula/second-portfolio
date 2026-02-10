@@ -1,0 +1,61 @@
+import { PortfolioType } from "../types/type";
+
+export const portfolioDetail: PortfolioType[] = [
+  {
+    id: "onharu",
+    video_url: "",
+    title: "온하루",
+    period: "2026.01 - 2026.02",
+    contribution: "팀 프로젝트",
+    description:
+      "기록은 쌓이고, 경험은 진화한다. \n 리팩토링으로 더 새로워진 책담 Season 2",
+    hashtags: ["#팀 프로젝트", "예약"],
+    skills: ["Next.js", "Typescript", "zustand", "tailwind CSS"],
+    site_url: "",
+    github_url: "",
+  },
+  {
+    id: "bookdam2",
+    video_url: "",
+    title: "책담2(리팩토링)",
+    period: "2025.11 - 2025.12",
+    contribution: "개인 프로젝트",
+    description:
+      "기록은 쌓이고, 경험은 진화한다. \n 리팩토링으로 더 새로워진 책담 Season 2",
+    hashtags: ["#1인 프로젝트", "독서리뷰"],
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "zustand",
+      "supabase",
+      "tailwind CSS",
+      "styled-components",
+    ],
+    site_url: "https://bookdam-ver2.vercel.app/",
+    github_url: "https://github.com/yeaseula/BookdamVer2",
+  },
+  {
+    id: "maserati",
+    video_url: "",
+    title: "마세라티 3D 갤러리",
+    period: "2025.09 - 2025.09",
+    contribution: "개인 프로젝트",
+    description: "정교함을 회전시키다. Maserati 3D Experience",
+    hashtags: ["#3D 전시장", "#자동차"],
+    skills: ["React", "tailwind", "Three.js", "React Fiber"],
+    site_url: "https://maserati-3d-gallery.pages.dev",
+    github_url: "https://github.com/yeaseula/Maserati-3D-Gallery",
+  },
+  {
+    id: "fighthero",
+    video_url: "",
+    title: "Fight Hero - 미니게임",
+    period: "2025.08.21 - 2025.09.02",
+    contribution: "개인 프로젝트",
+    description: "JavaScript 클래스 기반으로 구현한 판타지 미니 게임!",
+    hashtags: ["#미니게임"],
+    skills: ["javascript", "html", "css"],
+    site_url: "https://yeaseula.github.io/FightHero/",
+    github_url: "https://github.com/yeaseula/FightHero",
+  },
+];

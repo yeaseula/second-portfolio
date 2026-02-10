@@ -1,4 +1,4 @@
-import { PortfolioType } from "../../types/portfolio";
+import { PortfolioType } from "./types/type";
 import { RiGithubFill, RiLinksFill } from "@remixicon/react";
 
 export default function DetailTop({
@@ -7,7 +7,7 @@ export default function DetailTop({
   targetdata: PortfolioType;
 }) {
   const LinkClassess =
-    "w-18 h-18 flex justify-center items-center bg-white rounded-full border border-gray-300 duration-200 hover:scale-85";
+    "w-13 h-13 flex justify-center items-center bg-white rounded-full border border-gray-300 duration-200 hover:scale-95";
 
   return (
     <>
