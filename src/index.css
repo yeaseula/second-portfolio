@@ -1,23 +1,6 @@
+@config "../tailwind.config.ts";
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  --background_color: #232223;
-  --background_color: #f8faf9;
-  --main_color: #0f766e;
-  --main_right_color: #d2ece6;
-  --white_color: #ffffff;
-  --black_color: #000000;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 @font-face {
   font-family: "BebasNeue";
   src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
@@ -26,45 +9,38 @@
   ascent-override: 100%;
 }
 @font-face {
-  font-family: "NotoSerifKR_Bold";
-  src: url("/fonts/NotoSerifKR-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NotoSerifKR_Medium";
-  src: url("/fonts/NotoSerifKR-Medium.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Pretendard_Bold";
+  font-family: "Pretendard";
   src: url("/fonts/Pretendard-Bold.subset.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pretendard_SemiBold";
+  font-family: "Pretendard";
   src: url("/fonts/Pretendard-SemiBold.subset.woff2") format("woff2");
-  font-weight: 700;
+  font-weight: 600;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pretendard_Regular";
+  font-family: "Pretendard";
   src: url("/fonts/Pretendard-Regular.subset.woff2") format("woff2");
-  font-weight: 700;
+  font-weight: 400;
   font-display: swap;
 }
 
-* {
-  line-height: 1.5;
-  font-family: "Pretendard_Regular";
-}
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
+@layer base {
+  :root {
+    --font-sans: Pretendard, ui-sans-serif, system-ui;
+    --background: #f8faf9;
+  }
+  body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    line-height: 1.5;
+    background: var(--background);
+  }
 }
 
 main {
@@ -74,14 +50,6 @@ main {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Pretendard_Bold";
 }
 
 a {
@@ -94,18 +62,10 @@ li {
   list-style: none;
 }
 
-strong,
+/* strong,
 .ff-b {
   font-family: "Pretendard_Bold";
-}
-
-.sr-only {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: -1;
-}
+} */
 
 img {
   vertical-align: bottom;

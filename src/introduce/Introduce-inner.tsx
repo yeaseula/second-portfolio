@@ -3,7 +3,7 @@ import { Introduce, IntroduceContact } from "./data/data";
 export const IntroduceInner = () => {
   const GridClasses = "mt-5 grid grid-cols-2 gap-4";
   const BoxClasses = "bg-white rounded-2xl shadow-sm overflow-hidden";
-  const TitleClasses = "text-3xl ff-b pb-2";
+  const TitleClasses = "text-3xl font-bold pb-2";
 
   return (
     <section>
@@ -12,7 +12,9 @@ export const IntroduceInner = () => {
           <div className={clsx("py-5 px-6", BoxClasses)}>
             <p className={TitleClasses}>{Introduce.title}</p>
             {Introduce.contents.map((i) => (
-              <p key={i.id}>• {i.cont}</p>
+              <p key={i.id} className="mt-1">
+                • {i.cont}
+              </p>
             ))}
           </div>
           <div className={clsx("py-5 px-6", BoxClasses)}>

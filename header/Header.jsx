@@ -29,7 +29,7 @@ const navItems = [
 export default function Header() {
   const { pathname } = useLocation();
   return (
-    <header className="sticky top-0 z-50 bg-(--background_color) border-b border-gray-200 py-5 max-w-[970px] w-full flex gap-10 items-center justify-start">
+    <header className="sticky top-0 z-50 border-b border-gray-200 py-5 max-w-[970px] w-full flex gap-10 items-center justify-start">
       <h1 className="sr-only">김예슬의 포트폴리오</h1>
       {navItems.map((items) => {
         const isActive = matchPath({ path: items.pathname + "/*" }, pathname);
@@ -43,7 +43,7 @@ export default function Header() {
             {isActive && (
               <motion.div
                 layoutId="active-indicator"
-                className="absolute inset-0 rounded-md bg-(--main_color)"
+                className="absolute inset-0 rounded-md bg-main"
                 transition={{
                   type: "spring",
                   stiffness: 500,
