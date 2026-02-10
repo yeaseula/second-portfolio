@@ -8,7 +8,7 @@ import Header from "../header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Project from "./project/Project";
 import ProjectDetail from "./project/detail/ProjectDetail";
-import AboutMe from "./aboutme/about";
+import Introduce from "./introduce/Introduce";
 import Teamwork from "./teamwork/teamwork";
 import Skills from "./skills/skills";
 import Activity from "./activity/activity";
@@ -23,7 +23,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Navigate to="/introduce" replace />} />
-              <Route path="introduce" element={<AboutMe />}></Route>
+              <Route path="introduce" element={<Introduce />}></Route>
               <Route path="teamwork" element={<Teamwork />}></Route>
               <Route path="project" element={<Project />}></Route>
               <Route path="project/:id" element={<ProjectDetail />}></Route>
