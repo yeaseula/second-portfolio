@@ -21,7 +21,7 @@ const ProjectDetail = memo(() => {
     if (!id) return;
     const target = portfolioDetail.find((val) => val.id === id);
     if (!target) return;
-    import(`../../data/portfolio-content/${id}.md?raw`).then((module) => {
+    import(`./data/portfolio-content/${id}.md?raw`).then((module) => {
       const parsed = parseMarkdownByTab(module.default);
       setTargetData({
         topDataType: target,

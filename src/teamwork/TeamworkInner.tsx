@@ -1,4 +1,4 @@
-import { TeamWorkData, TeamWorkData2 } from "../data/teamwork/teamwork";
+import { TeamWorkData, TeamWorkData2 } from "./data/teamwork";
 import { RiDownload2Line } from "@remixicon/react";
 import clsx from "clsx";
 
