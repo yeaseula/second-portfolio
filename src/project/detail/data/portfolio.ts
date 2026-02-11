@@ -36,7 +36,7 @@ export const portfolioDetail: PortfolioType[] = [
   },
   {
     id: "maserati",
-    video_url: "",
+    video_url: "/video/maserati.mp4",
     title: "마세라티 3D 갤러리",
     period: "2025.09 - 2025.09",
     contribution: "개인 프로젝트",

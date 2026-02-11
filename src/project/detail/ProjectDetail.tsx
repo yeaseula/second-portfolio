@@ -37,7 +37,18 @@ const ProjectDetail = memo(() => {
   return (
     <ContentsWrapper>
       <h2 className="sr-only">상세 설명</h2>
-      <div className="w-full h-100 bg-main-lignt">동영상 영역</div>
+
+      <div className="w-full rounded-xl h-130 bg-main-lignt relative border border-gray-300 overflow-hidden">
+        <video
+          className="absolute inset-0 object-cover w-full h-full block border-none outline-none"
+          controls
+          autoPlay
+          muted
+          loop
+        >
+          <source src={`/video/${id}.mp4`} type="video/mp4" />
+        </video>
+      </div>
       <div className="relative py-7">
         <DetailTop targetdata={targetdata.topDataType} />
         <TabContents
