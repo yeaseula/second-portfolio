@@ -1,12 +1,3 @@
-import styled from "styled-components"
-
-const CommonContainer = styled.div`
-    max-width: 970px;
-    width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
-`
-
-export default function Container({children}) {
-    return <CommonContainer>{children}</CommonContainer>
+export default function Container({ children }) {
+  return <div className="max-w-[970px] w-full px-4 m-auto">{children}</div>;
 }

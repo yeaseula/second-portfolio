@@ -10,7 +10,7 @@ export default function ContentsWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-20">
+    <section className="pt-20 pb-30">
       {title}
       <h2 className="sr-only">{screenReader}</h2>
       <article className="w-full mt-5">{children}</article>
