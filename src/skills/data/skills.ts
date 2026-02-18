@@ -18,10 +18,11 @@ export const Skills = [
       },
       {
         title: "State Management",
-        subtitle: "Zustand / Context API",
+        subtitle: "Zustand / Context API / TanStack Query",
         contents: [
           "Zustand를 활용해 UI 인터랙션 중심의 전역 상태 관리",
           "Context API를 사용해 props drilling이 과도해지는 구간에서 공통 데이터 전달",
+          "TanStack Query useQuery 기반 서버 상태 관리 경험",
         ],
       },
       {

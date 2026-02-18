@@ -1,31 +1,6 @@
 import { projectInforType } from "../types/type";
 export const Projects: projectInforType[] = [
   {
-    src: "/image/poster_onharu_302.webp",
-    srcSet: "/image/poster_onharu_604.webp",
-    alt: "온하루 포스터",
-    srOnly: "온하루 공식 포스터 - 해질녘 착한 가게를 찾는 아이",
-    contentsId: "onharu",
-    title: "온하루",
-    period: "2026.01 - 2026.02",
-    contribution: "팀 프로젝트",
-    description: [
-      {
-        id: "line1",
-        des: "나눔카드를 드러내지 않아도 아이들이 내 주변의 따뜻한 가게를 탐색하고 이용할 수 있는 서비스입니다.",
-      },
-      {
-        id: "line2",
-        des: "식당을 넘어 의료·생활까지, 나눔을 실천하는 동네 가게를 한곳에 모아",
-      },
-      {
-        id: "line3",
-        des: "예약만으로 자연스럽게 서비스를 이용해 아이들의 존엄을 지킬 수 있도록 돕습니다.",
-      },
-    ],
-    skills: ["Next.js", "Typescript", "zustand", "tailwind CSS"],
-  },
-  {
     src: "/image/poster_bookdam_302.webp",
     srcSet: "/image/poster_bookdam_604.webp",
     alt: "책담 시즌2 포스터",
@@ -56,6 +31,31 @@ export const Projects: projectInforType[] = [
       "tailwind CSS",
       "styled-components",
     ],
+  },
+  {
+    src: "/image/poster_onharu_302.webp",
+    srcSet: "/image/poster_onharu_604.webp",
+    alt: "온하루 포스터",
+    srOnly: "온하루 공식 포스터 - 해질녘 착한 가게를 찾는 아이",
+    contentsId: "onharu",
+    title: "온하루",
+    period: "2026.01 - 2026.02",
+    contribution: "팀 프로젝트",
+    description: [
+      {
+        id: "line1",
+        des: "나눔카드를 드러내지 않아도 아이들이 내 주변의 따뜻한 가게를 탐색하고 이용할 수 있는 서비스입니다.",
+      },
+      {
+        id: "line2",
+        des: "식당을 넘어 의료·생활까지, 나눔을 실천하는 동네 가게를 한곳에 모아",
+      },
+      {
+        id: "line3",
+        des: "예약만으로 자연스럽게 서비스를 이용해 아이들의 존엄을 지킬 수 있도록 돕습니다.",
+      },
+    ],
+    skills: ["Next.js", "Typescript", "zustand", "tailwind CSS"],
   },
   {
     src: "/image/poster_maserati_302.webp",

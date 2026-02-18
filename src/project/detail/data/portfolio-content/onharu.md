@@ -30,49 +30,26 @@
 
 ## trouble
 
-> 위치 기반 매장 탐색 기능 구현 시 데이터 중복 관리 문제
+> URL 기반 단일 상태 관리 훅 도입으로 상태 동기화 문제 해결
 
 **문제**
 
-- 지도(Map), 검색(keyword), 카테고리(category), 마커/카드 포커싱 상태를 각각 다른 컴포넌트와 커스텀 훅에서 관리하면서 동일한 데이터(stores)가 여러 곳에서 state로 중복 관리되는 구조가 만들어짐.
-
-**분석**
-
-- 카테고리 필터, 내 위치 기반 주변 가게 필터 등 데이터 정렬의 기준이 다수 존재.
-- 필터링마다 계산 가능한 값을 state로 저장해 필터링의 기준점이 불분명해지며 복잡한 상태가 발생.
-- 단순히 저장해야 될 값과 계산해야 될 값을 구분해야 함을 인지.
+- 카테고리, 정렬, 페이지, 위치, 검색 기능이 추가되면서 상태가 state와 URL에 동시 존재
+- 새로고침 시 필터 상태 초기화
+- 뒤로가기/URL 공유 불가
+- 필터 로직이 Nearby 컴포넌트 내부에 흩어져 있어 코드 복잡도 증가
 
 **해결**
 
-- 저장값과 계산값을 분리
-- 저장(State): 사용자 입력, 외부에서 들어오는 값
-- 계산(Derived): 기존 state로부터 만들어지는 값
+- URL을 단일 상태 소스로 정의, 각 핸들러는 URL의 파라미터를 변경시키고 파라미터가 변경되며 api를 호출하는 단일 로직으로 변경
+- useStoreFilter 커스텀 훅을 만들어 필터/정렬/검색/위치 로직 캡슐화
+- TanStack Query와 URL을 연동하여 URL 변경 시 자동 데이터 refetch
 
-```
-allStores        // 원본 데이터
-keyword          // 검색어
-category         // 선택된 카테고리
-activeId         // 포커싱된 매장
+**결과**
 
-// 계산
-const stores = useMemo(() => {
-  let result = allStores;
-
-  if (keyword) {
-    result = searchStores({ stores: result, keyword });
-  }
-
-  if (!keyword && category !== "전체") {
-    result = filterByCategory(result, category);
-  }
-
-  return result;
-}, [allStores, keyword, category]);
-```
-
-- stores를 state로 저장하지 않고 계산된 값으로만 유지함으로써
-  상태 변경의 책임을 한 곳(page.tsx)에 집중시켰고,
-  컴포넌트들은 결과를 소비하는 역할만 갖도록 구조를 단순화
+- 새로고침/공유/뒤로가기 시 상태 유지 가능
+- 필터 로직 중복 제거 및 재사용 가능성 상승
+- 서버 상태(TanStack Query)와 URL 상태의 명확한 역할 분리
 
 > 데스크톱/모바일 디자인 분리로 인해 컴포넌트가 무거워짐
 
