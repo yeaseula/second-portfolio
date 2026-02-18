@@ -70,14 +70,18 @@ export const Projects: projectInforType[] = [
     description: [
       {
         id: "line1",
-        des: "Three.js와 React로 제작한 인터랙티브 자동차 갤러리 입니다.",
+        des: "Three.js 학습을 실제 서비스 수준으로 발전시키고자 자기주도적으로 기획했습니다.",
       },
       {
         id: "line2",
-        des: "glb 모델을 통해 입체감 있고 정교한 자동차 모델을 사용하였으며",
+        des: "React와 React Three Fiber로 제작한 인터랙티브 자동차 갤러리 입니다.",
       },
       {
         id: "line3",
+        des: "glb 모델을 통해 입체감 있고 정교한 자동차 모델을 사용하였으며",
+      },
+      {
+        id: "line4",
         des: "orbitcontrol을 이용해 360도 회전 및 확대 축소가 가능합니다.",
       },
     ],
