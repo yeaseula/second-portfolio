@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Container>
             <Header />
             <Routes>
