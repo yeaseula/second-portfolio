@@ -9,13 +9,13 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
       {data.map((data) => (
         <div
           key={data.contentsId}
-          className="relative mb-9 duration-250 hover:-translate-y-1"
+          className="relative mb-9 duration-250 hover:-translate-y-1 border-b pb-5 sm:pb-0 sm:border-none border-gray-300"
         >
           <NavLink
             to={`/project/${data.contentsId}`}
             className="absolute inset-0"
           />
-          <div className="w-full flex gap-5">
+          <div className="w-full flex flex-col items-center sm:items-start sm:flex-row gap-5">
             <figure>
               <img
                 src={data.src}
@@ -27,15 +27,15 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
               />
               <figcaption className="sr-only">{data.srOnly}</figcaption>
             </figure>
-            <div className="pt-4">
-              <p className="flex gap-1.5 mb-5 text-md font-extrabold">
+            <div className="pt-4 sm:w-[calc(100%-200px)]">
+              <p className="flex gap-1.5 justify-center sm:justify-start mb-5 text-sm md:text-md font-extrabold">
                 <span>{data.title}</span>
-                <span>·</span>
+                <span className="hidden sm:inline-block">·</span>
                 <span className="tracking-tighter">{data.period}</span>
-                <span>·</span>
+                <span className="hidden sm:inline-block">·</span>
                 <span>{data.contribution}</span>
               </p>
-              <div className="flex gap-2 mb-4">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-4">
                 {data.skills.map((ele) => {
                   const skill =
                     SkillHashColor[ele as keyof typeof SkillHashColor];
@@ -57,7 +57,12 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
               </div>
               <div>
                 {data.description.map((ele) => (
-                  <p key={ele.id}>{ele.des}</p>
+                  <p
+                    key={ele.id}
+                    className="text-sm sm:text-base text-center sm:text-start"
+                  >
+                    {ele.des}
+                  </p>
                 ))}
               </div>
             </div>

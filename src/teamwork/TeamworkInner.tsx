@@ -19,9 +19,9 @@ export default function TeamworkInner() {
         {TeamWorkData.map((data) => (
           <div
             key={data.id}
-            className="flex gap-7 mt-10 border-b border-gray-300 pb-10"
+            className="md:flex gap-7 mt-10 border-b border-gray-300 pb-10"
           >
-            <div className="flex-1">
+            <div className="w-full md:w-auto md:flex-1">
               <p className="text-md font-extrabold mb-2">{data.title}</p>
               <div className="mb-6">
                 {data.contents.map((contents) => (
@@ -43,7 +43,7 @@ export default function TeamworkInner() {
                 {data.downloadBtnName}
               </a>
             </div>
-            <div className="w-130 border border-gray-200 rounded-xl overflow-hidden">
+            <div className="mt-7 md:mt-0 w-full md:w-130 border border-gray-200 rounded-xl overflow-hidden">
               <img src={data.imageFile} alt={data.imageAlt} />
             </div>
           </div>
@@ -58,13 +58,15 @@ export default function TeamworkInner() {
                 {des.data}
               </div>
             ))}
-            <div className="mt-9 grid grid-cols-2 gap-3 gap-y-8">
+            <div className="mt-9 grid  md:grid-cols-2 gap-3 gap-y-8">
               {data.contents.map((cont) => (
                 <div
                   key={cont.id}
-                  className={clsx(cont.id === "content-2-3" && "col-span-2")}
+                  className={clsx(
+                    cont.id === "content-2-3" && "col-span-1 md:col-span-2",
+                  )}
                 >
-                  <div className="flex gap-3 image-container">
+                  <div className="flex flex-col md:flex-row gap-3 image-container">
                     {cont.imageFile.map((img) => (
                       <div
                         key={img}

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Introduce, IntroduceContact } from "./data/data";
 export const IntroduceInner = () => {
-  const GridClasses = "mt-2 grid grid-cols-2 gap-4";
+  const GridClasses = "mt-2 grid grid-cols-1 md:grid-cols-2 gap-4";
   const BoxClasses = "bg-white rounded-2xl shadow-sm overflow-hidden";
   const TitleClasses = "text-md font-extrabold pb-2";
 
