@@ -34,7 +34,7 @@ export const IntroduceInner = () => {
         <div className={GridClasses}>
           <div className={clsx("p-2", BoxClasses)}>
             <img
-              src="/image/introduce/about-blog.png"
+              src="/public/image/introduce/about-blog.png"
               alt="블로그 작성 기록 샘플"
             />
           </div>

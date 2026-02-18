@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter basename={"/second-portfolio/"}>
           <Container>
             <Header />
             <Routes>
