@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        <BrowserRouter basename={"/second-portfolio/"}>
+        <BrowserRouter>
           <Container>
             <Header />
             <Routes>
