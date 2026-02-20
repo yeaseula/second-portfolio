@@ -51,6 +51,8 @@ export const IntroduceInner = () => {
                 alt="깃 커밋 샘플"
                 loading="eager"
                 fetchPriority="high"
+                onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
+                className="opacity-0 transition-opacity duration-300"
               />
             </div>
             <p className="mt-10 whitespace-pre-line font-medium text-base">
