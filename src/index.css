@@ -2,11 +2,10 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "BebasNeue";
-  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Pretendard";
+  src: url("/fonts/Pretendard-Bold.subset.woff2") format("woff2");
+  font-weight: 700;
   font-display: swap;
-  ascent-override: 100%;
 }
 @font-face {
   font-family: "Pretendard";
