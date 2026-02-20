@@ -40,6 +40,8 @@ export const IntroduceInner = () => {
               height={380}
               loading="eager"
               fetchPriority="high"
+              onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
+              className="opacity-0 transition-opacity duration-300"
             />
           </div>
           <div>
