@@ -36,11 +36,18 @@ export const IntroduceInner = () => {
             <img
               src="/image/introduce/about-blog.png"
               alt="블로그 작성 기록 샘플"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
           <div>
             <div className={clsx("p-2", BoxClasses)}>
-              <img src="/image/about-commit.png" alt="깃 커밋 샘플" />
+              <img
+                src="/image/about-commit.png"
+                alt="깃 커밋 샘플"
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
             <p className="mt-10 whitespace-pre-line font-medium text-base">
               지난 한 해{" "}
