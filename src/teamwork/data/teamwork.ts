@@ -5,11 +5,7 @@ export const TeamWorkData = [
     contents: [
       {
         id: "con-1-1",
-        data: "팀 프로젝트 주제 제안 및 기능 명세서를 제작",
-      },
-      {
-        id: "con-1-2",
-        data: "공유해 팀 프로젝트의 방향성 제시",
+        data: "팀 프로젝트 주제 제안 및 기능 명세서를 제작, 공유해 팀 프로젝트의 방향성 제시",
       },
     ],
     downloadFile: "/pdf/결식아동_지원_서비스.pdf",

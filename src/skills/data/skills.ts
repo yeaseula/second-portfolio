@@ -17,6 +17,11 @@ export const Skills = [
         contents: ["데이터 구조를 명확히 정의하여 협업 시 안정성 확보"],
       },
       {
+        title: "Storybook",
+        subtitle: "",
+        contents: ["팀 프로젝트에서 기본 설정 및 컴포넌트 스토리 작성 경험"],
+      },
+      {
         title: "State Management",
         subtitle: "Zustand / Context API / TanStack Query",
         contents: [

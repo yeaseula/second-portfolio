@@ -31,7 +31,12 @@ const ProjectDetail = memo(() => {
   }, [id]);
 
   if (!targetdata.topDataType || !targetdata.tapDataType) {
-    return <>데이터 로드중</>;
+    return (
+      <div className="w-full h-[100vh] flex items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-main"></div>
+        <p>로딩중 입니다!</p>
+      </div>
+    );
   }
 
   return (
@@ -39,15 +44,22 @@ const ProjectDetail = memo(() => {
       <h2 className="sr-only">상세 설명</h2>
 
       <div className="w-full rounded-xl h-130 bg-main-lignt relative border border-gray-300 overflow-hidden">
-        <video
-          className="absolute inset-0 object-cover w-full h-full block border-none outline-none"
-          controls
-          autoPlay
-          muted
-          loop
-        >
-          <source src={`/video/${id}.mp4`} type="video/mp4" />
-        </video>
+        {id === "onharu" && (
+          <div className="w-full h-full flex justify-center items-center">
+            데모 영상은 준비중입니다!
+          </div>
+        )}
+        {id !== "onharu" && (
+          <video
+            className="absolute inset-0 object-cover w-full h-full block border-none outline-none"
+            controls
+            autoPlay
+            muted
+            loop
+          >
+            <source src={`/video/${id}.mp4`} type="video/mp4" />
+          </video>
+        )}
       </div>
       <div className="relative py-7">
         <DetailTop targetdata={targetdata.topDataType} />
