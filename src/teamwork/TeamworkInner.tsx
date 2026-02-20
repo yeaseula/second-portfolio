@@ -43,8 +43,15 @@ export default function TeamworkInner() {
                 {data.downloadBtnName}
               </a>
             </div>
-            <div className="mt-7 md:mt-0 w-full md:w-130 border border-gray-200 rounded-xl overflow-hidden">
-              <img src={data.imageFile} alt={data.imageAlt} />
+            <div className="mt-7 md:mt-0 w-full md:w-130 border border-gray-200 rounded-xl overflow-hidden md:min-h-90">
+              <img
+                src={data.imageFile}
+                alt={data.imageAlt}
+                loading="eager"
+                fetchPriority="high"
+                onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
+                className="opacity-0 transition-opacity duration-300"
+              />
             </div>
           </div>
         ))}
@@ -70,9 +77,18 @@ export default function TeamworkInner() {
                     {cont.imageFile.map((img) => (
                       <div
                         key={img}
-                        className="border border-gray-200 rounded-xl overflow-hidden"
+                        className="border border-gray-200 rounded-xl overflow-hidden md:min-h-66.5"
                       >
-                        <img src={img} alt={cont.imageAlt} />
+                        <img
+                          src={img}
+                          alt={cont.imageAlt}
+                          loading="eager"
+                          fetchPriority="high"
+                          onLoad={(e) =>
+                            e.currentTarget.classList.add("opacity-100")
+                          }
+                          className="opacity-0 transition-opacity duration-300"
+                        />
                       </div>
                     ))}
                   </div>

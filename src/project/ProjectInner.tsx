@@ -15,13 +15,16 @@ export default function ProjectInner({ data }: { data: projectInforType[] }) {
             to={`/project/${data.contentsId}`}
             className="absolute inset-0"
           />
-          <div className="w-full flex flex-col items-center sm:items-start sm:flex-row gap-5">
+          <div className="w-full flex flex-col items-center sm:items-start sm:flex-row gap-5 min-w-50 min-h-65">
             <figure>
               <img
                 src={data.src}
                 srcSet={data.srcSet}
                 alt={data.alt}
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
+                className="opacity-0 transition-opacity duration-300"
                 width={200}
                 height={303}
               />
