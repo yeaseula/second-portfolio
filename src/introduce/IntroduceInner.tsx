@@ -36,6 +36,8 @@ export const IntroduceInner = () => {
             <img
               src="/image/introduce/about-blog.webp"
               alt="블로그 작성 기록 샘플"
+              width={445}
+              height={380}
               loading="eager"
               fetchPriority="high"
             />
