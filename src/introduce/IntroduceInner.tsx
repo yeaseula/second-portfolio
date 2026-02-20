@@ -32,12 +32,10 @@ export const IntroduceInner = () => {
       <div className="mt-8">
         <p className={TitleClasses}>성실함의 지표</p>
         <div className={GridClasses}>
-          <div className={clsx("p-2 aspect-[445/380]", BoxClasses)}>
+          <div className={clsx("p-2 aspect-[445/195]", BoxClasses)}>
             <img
               src="/image/introduce/about-blog.webp"
               alt="블로그 작성 기록 샘플"
-              width={445}
-              height={380}
               loading="eager"
               fetchPriority="high"
               onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
@@ -45,7 +43,7 @@ export const IntroduceInner = () => {
             />
           </div>
           <div>
-            <div className={clsx("p-2 aspect-[445/122]", BoxClasses)}>
+            <div className={clsx("p-2 aspect-[445/141]", BoxClasses)}>
               <img
                 src="/image/about-commit.png"
                 alt="깃 커밋 샘플"
