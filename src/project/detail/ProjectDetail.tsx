@@ -32,7 +32,7 @@ const ProjectDetail = memo(() => {
 
   if (!targetdata.topDataType || !targetdata.tapDataType) {
     return (
-      <div className="w-full h-[100vh] flex items-center justify-center">
+      <div className="w-full h-[100vh] flex flex-row gap-5 items-center justify-center">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-main"></div>
         <p>로딩중 입니다!</p>
       </div>
