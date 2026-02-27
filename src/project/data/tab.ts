@@ -31,3 +31,21 @@ export const TABCONTENTS_TYPE2 = [
     title: "회고",
   },
 ];
+export const TABCONTENTS_TEAM = [
+  {
+    id: 1,
+    title: "기여 내용",
+  },
+  {
+    id: 2,
+    title: "협업 방식",
+  },
+  {
+    id: 3,
+    title: "트러블 슈팅",
+  },
+  {
+    id: 4,
+    title: "회고",
+  },
+];
