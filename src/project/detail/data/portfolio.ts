@@ -22,7 +22,7 @@ export const portfolioDetail: PortfolioType[] = [
     description: "",
     hashtags: ["#팀 프로젝트", ""],
     skills: ["Next.js", "Typescript", "zustand", "tailwind CSS"],
-    site_url: "https://www.bbanggree.com",
+    site_url: "https://develop.d116jefxyr5bb0.amplifyapp.com/products",
     github_url: "https://github.com/eco-dessert-platform",
   },
   {
