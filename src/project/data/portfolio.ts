@@ -12,15 +12,15 @@ export const Projects: projectInforType[] = [
     description: [
       {
         id: "line1",
-        des: "사용자의 리뷰 데이터와 관심분야를 분석해 맞춤형 도서를 추천하고,",
+        des: "사용자의 독서 취향 데이터를 활용해 맞춤형 도서 추천 로직을 구현한 개인화 관리 플랫폼입니다.",
       },
       {
         id: "line2",
-        des: "독서 시간 기록 및 습관 형성을 지원하는 개인화 독서 관리 웹/앱 서비스입니다.",
+        des: "초기 CSR 환경의 성능 한계를 극복하기 위해 라이트하우스 지표를 분석하고, SSR 전환으로 Network 완료 시간을 60% 단축했습니다.",
       },
       {
         id: "line3",
-        des: "기획,디자인,백엔드/프론트 모두 1인 주도 개발했습니다.",
+        des: "Figma를 활용해 디자인하고, Supabase를 활용해 백엔드 인프라를 구축했습니다.",
       },
     ],
     skills: [
@@ -44,7 +44,7 @@ export const Projects: projectInforType[] = [
     description: [
       {
         id: "line1",
-        des: "실제 사용자 대상 서비스로 운영중이며 건강 디저트를 한 눈에 볼 수 있는 플랫폼입니다.",
+        des: "건강 디저트를 한 눈에 볼 수 있는 건강 디저트 판매 플랫폼의 Admin, Seller 개발에 참여중입니다.",
       },
       {
         id: "line2",
@@ -52,7 +52,11 @@ export const Projects: projectInforType[] = [
       },
       {
         id: "line3",
-        des: "주 1회 전체 직군 회의와 프론트엔드 기술 회의를 통해 기능 설계 및 구현 과정에 참여했습니다.",
+        des: "FSD 아키텍처 기반의 엄격한 폴더 구조 설계를 엄수하고 있으며,",
+      },
+      {
+        id: "line4",
+        des: "Monorepo와 Storybook을 활용해 디자인토큰 및 공통 컴포넌트를 관리하며 디자인 일관성 및 개발 효율성을 확보했습니다.",
       },
     ],
     skills: [
