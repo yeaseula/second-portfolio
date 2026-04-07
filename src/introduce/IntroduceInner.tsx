@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Introduce, IntroduceContact } from "./data/data";
+
 export const IntroduceInner = () => {
   const GridClasses = "mt-2 grid grid-cols-1 md:grid-cols-2 gap-4";
   const BoxClasses = "bg-white rounded-2xl shadow-sm overflow-hidden";
@@ -12,7 +13,7 @@ export const IntroduceInner = () => {
           <div className={clsx("py-5 px-4", BoxClasses)}>
             <p className={clsx(TitleClasses, "pb-4")}>{Introduce.title}</p>
             {Introduce.contents.map((i) => (
-              <p key={i.id} className="font-normal text-base">
+              <p key={i.id} className="font-normal text-base mb-1">
                 • {i.cont}
               </p>
             ))}
@@ -21,9 +22,22 @@ export const IntroduceInner = () => {
             <p className={TitleClasses}>{IntroduceContact.title}</p>
             {IntroduceContact.contents.map((i) => (
               <p key={i.id} className="mt-1">
-                <a href={i.link} target="_blank" className="flex gap-2 w-fit">
-                  {<i.icon />} {i.cont}
-                </a>
+                {i.link && (
+                  <>
+                    <a
+                      href={i.link}
+                      target="_blank"
+                      className="flex gap-2 w-fit"
+                    >
+                      {<i.icon />} {i.cont}
+                    </a>
+                  </>
+                )}
+                {!i.link && (
+                  <span className="flex gap-2 w-fit">
+                    {<i.icon />} {i.cont}
+                  </span>
+                )}
               </p>
             ))}
           </div>
@@ -32,7 +46,7 @@ export const IntroduceInner = () => {
       <div className="mt-8">
         <p className={TitleClasses}>성실함의 지표</p>
         <div className={GridClasses}>
-          <div className={clsx("p-2 aspect-[445/195]", BoxClasses)}>
+          <div className={clsx("p-2", BoxClasses)}>
             <img
               src="/image/introduce/about-blog.webp"
               alt="블로그 작성 기록 샘플"
